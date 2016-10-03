@@ -1,4 +1,5 @@
 var camera, scene, renderer;
+var ship;
 
 function render() {
       'use strict';
@@ -43,7 +44,7 @@ function addShipWeaponEnd(obj, x, y, z, material) {
 
 function createShip(x, y, z) {
       'use strict';	
-      var ship = new THREE.Object3D();
+      ship = new THREE.Object3D();
       var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
       
       addShipBase(ship, 0, 0, 0, material);
@@ -87,6 +88,57 @@ function onResize() {
 	render();
 }
 
+function onKeyDown(event) {
+	'use strict';
+	if(event.keyCode == 65) { //A
+		window.isADown = true;
+	}
+	if(event.keyCode == 83) { //S
+		window.isSDown = true;	
+	}
+	if(event.keyCode == 87) { //W
+		window.isWDown = true;
+	}
+	if(event.keyCode == 68) { //D
+		window.isDDown = true;
+	}
+}
+
+function onKeyUp(event) {
+	'use strict';
+	if(event.keyCode == 65) { //A
+		window.isADown = false;
+	}
+	if(event.keyCode == 83) { //S
+		window.isSDown = false;	
+	}
+	if(event.keyCode == 87) { //W
+		window.isWDown = false;
+	}
+	if(event.keyCode == 68) { //D
+		window.isDDown = false;
+	}
+}
+
+function animate() {
+	'use strict';
+
+	if(window.isADown) {
+		ship.position.x -= 5;
+	}
+	if(window.isSDown) {
+		ship.position.y -= 5;
+	}
+	if(window.isWDown) {
+		ship.position.y += 5;
+	}
+	if(window.isDDown) {
+		ship.position.x += 5;
+	}
+	render();
+	requestAnimationFrame(animate);
+}
+
 function init() {
        'use strict';
        renderer = new THREE.WebGLRenderer();
@@ -94,8 +146,10 @@ function init() {
        document.body.appendChild(renderer.domElement);
 
        createScene();
-       createCamera();
-       render();  
+	   createCamera();
+	   render();  
 
-       window.addEventListener("resize", onResize, false);   
+       window.addEventListener("resize", onResize);   
+       window.addEventListener("keydown", onKeyDown);
+       window.addEventListener("keyup", onKeyUp);
 }
