@@ -5,18 +5,30 @@ function render() {
       renderer.render(scene, camera);
 }
 
+function addShip(obj, x, y, z) {
+      'use strict';
+      var geometry = new THREE.CubeGeometry(60, 2, 20);
+      var mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(x, y, z);
+}
+
 function createShip(x, y, z) {
       'use strict';
       var ship = new THREE.Object3D();
-      material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+      var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+      var geometry = new THREE.CubeGeometry(60, 2, 20);
+      var mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(0, 0, 0);
       
+      ship.add(mesh);
       
+      //addShip(ship, 0, 0, 0);
       
-      scene.add(table);
+      scene.add(ship);
       
-      table.position.x = x;
-      table.position.y = y;
-      table.position.z = z;
+      ship.position.x = x;
+      ship.position.y = y;
+      ship.position.z = z;
 }
 
 function createCamera() {
@@ -31,7 +43,9 @@ function createCamera() {
 function createScene() {
       'use strict';
       scene = new THREE.Scene();
-      scene.add(new THREE.AxistHelper(10));
+      scene.add(new THREE.AxisHelper(10));
+      
+      createShip(0, 0 ,0);
 }
 
 function init() {
