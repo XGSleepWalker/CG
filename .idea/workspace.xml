@@ -36,8 +36,8 @@
       <file leaf-file-name="invaders.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JS/invaders.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
+            <state relative-caret-position="297">
+              <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="73" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -192,15 +192,15 @@
       <option name="presentableId" value="Default" />
       <updated>1475506214532</updated>
       <workItem from="1475506216351" duration="1515000" />
-      <workItem from="1475517387278" duration="2769000" />
+      <workItem from="1475517387278" duration="2927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4284000" />
+    <option name="totallyTimeSpent" value="4442000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1087" extended-state="0" />
+    <frame x="953" y="0" width="974" height="1087" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -279,8 +279,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/invaders.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
+        <state relative-caret-position="297">
+          <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="73" selection-end-column="6" />
           <folding />
         </state>
       </provider>

@@ -78,6 +78,7 @@ function createScene() {
 function onResize() {
 	'use strict';
 	renderer.setSize(window.innerWidth, window.innerHeight);
+	render();
 }
 
 function init() {
@@ -85,10 +86,10 @@ function init() {
        renderer = new THREE.WebGLRenderer();
        renderer.setSize(window.innerWidth, window.innerHeight);
        document.body.appendChild(renderer.domElement);
-       
+
        createScene();
        createCamera();
-       render();
+       render();  
 
-       window.addEventListener("resize", onResize);
+       window.addEventListener("resize", onResize, false);   
 }
