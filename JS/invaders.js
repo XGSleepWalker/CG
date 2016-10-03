@@ -5,24 +5,51 @@ function render() {
       renderer.render(scene, camera);
 }
 
-function addShip(obj, x, y, z) {
+function addShipBase(obj, x, y, z, material) {
       'use strict';
-      var geometry = new THREE.CubeGeometry(60, 2, 20);
+      var geometry = new THREE.CubeGeometry(80, 30, 0);
       var mesh = new THREE.Mesh(geometry, material);
       mesh.position.set(x, y, z);
+	  
+	  obj.add(mesh);
+}
+
+function addShipWeaponMount(obj, x, y, z, material) {
+      'use strict';
+      var geometry = new THREE.CubeGeometry(60, 6, 0);
+      var mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(x, y, z);
+	  
+	  obj.add(mesh);
+}
+
+function addShipWeaponSupport(obj, x, y, z, material) {
+      'use strict';
+      var geometry = new THREE.CubeGeometry(20, 20, 0);
+      var mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(x, y, z);
+	  
+	  obj.add(mesh);
+}
+
+function addShipWeaponEnd(obj, x, y, z, material) {
+      'use strict';
+      var geometry = new THREE.CubeGeometry(8, 8, 0);
+      var mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(x, y, z);
+	  
+	  obj.add(mesh);
 }
 
 function createShip(x, y, z) {
-      'use strict';
+      'use strict';	
       var ship = new THREE.Object3D();
-      var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
-      var geometry = new THREE.CubeGeometry(60, 2, 20);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(0, 0, 0);
+      var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
       
-      ship.add(mesh);
-      
-      //addShip(ship, 0, 0, 0);
+      addShipBase(ship, 0, 0, 0, material);
+	  addShipWeaponMount(ship, 0, 18, 0, material);
+	  addShipWeaponSupport(ship, 0, 26, 0, material);
+	  addShipWeaponEnd(ship, 0, 40, 0, material);
       
       scene.add(ship);
       
@@ -33,19 +60,19 @@ function createShip(x, y, z) {
 
 function createCamera() {
       'use strict';  
-      camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
-      camera.position.x = 50;
-      camera.position.y = 50;
-      camera.position.z = 50;
+      camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 1, 1000 );
+      camera.position.x = 0;
+      camera.position.y = 0;
+      camera.position.z = 750;
       camera.lookAt(scene.position);
 }
 
 function createScene() {
       'use strict';
       scene = new THREE.Scene();
-      scene.add(new THREE.AxisHelper(10));
+      //scene.add(new THREE.AxisHelper(10));
       
-      createShip(0, 0 ,0);
+      createShip(-100, -100 ,0);
 }
 
 function init() {
