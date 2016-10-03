@@ -75,13 +75,20 @@ function createScene() {
       createShip(-100, -100 ,0);
 }
 
+function onResize() {
+	'use strict';
+	renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
 function init() {
        'use strict';
        renderer = new THREE.WebGLRenderer();
        renderer.setSize(window.innerWidth, window.innerHeight);
-       document.body.appendChild( renderer.domElement );
+       document.body.appendChild(renderer.domElement);
        
        createScene();
        createCamera();
        render();
+
+       window.addEventListener("resize", onResize);
 }
