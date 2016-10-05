@@ -6,9 +6,18 @@ function render() {
       renderer.render(scene, camera);
 }
 
-function addShipBase(obj, x, y, z, material) {
+function addShipBase1(obj, x, y, z, material) {
       'use strict';
-      var geometry = new THREE.CubeGeometry(80, 30, 0);
+      var geometry = new THREE.CubeGeometry(40, 30, 0);
+      var mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(x, y, z);
+	  
+	  obj.add(mesh);
+}
+
+function addShipBase2(obj, x, y, z, material) {
+      'use strict';
+      var geometry = new THREE.CubeGeometry(40, 30, 0);
       var mesh = new THREE.Mesh(geometry, material);
       mesh.position.set(x, y, z);
 	  
@@ -45,9 +54,10 @@ function addShipWeaponEnd(obj, x, y, z, material) {
 function createShip(x, y, z) {
       'use strict';	
       ship = new THREE.Object3D();
-      var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
       
-      addShipBase(ship, 0, 0, 0, material);
+      addShipBase1(ship, -20, 0, 0, material);
+      addShipBase2(ship, 20, 0, 0, material);
 	  addShipWeaponMount(ship, 0, 18, 0, material);
 	  addShipWeaponSupport(ship, 0, 26, 0, material);
 	  addShipWeaponEnd(ship, 0, 40, 0, material);
@@ -58,6 +68,18 @@ function createShip(x, y, z) {
       ship.position.y = y;
       ship.position.z = z;
 }
+
+/*function createPlayField(x, y, z) {
+	'use strict';
+	var material = new THREE.NoColors();
+	var geometry = new THREE.BoxGeometry(x, y, z);
+	var playField = new THREE.Mesh(geometry, material);
+	
+	scene.add(playField);
+	playField.position.x = 0;
+	playField.position.y = 0;
+	playField.position.z = 0;
+}*/
 
 function createCamera() {
       'use strict';  
@@ -74,6 +96,7 @@ function createScene() {
       //scene.add(new THREE.AxisHelper(10));
       
       createShip(-100, -100 ,0);
+      //createPlayField(getSize().innerWidth, getSize().innerHeight, 0);
 }
 
 function onResize() {
@@ -85,55 +108,54 @@ function onResize() {
 		camera.updateProjectionMatrix();
 	}
 
-	render();
+	//render();
 }
 
 function onKeyDown(event) {
 	'use strict';
-	if(event.keyCode == 65) { //A
-		window.isADown = true;
-	}
-	if(event.keyCode == 83) { //S
-		window.isSDown = true;	
-	}
-	if(event.keyCode == 87) { //W
-		window.isWDown = true;
-	}
-	if(event.keyCode == 68) { //D
-		window.isDDown = true;
+	switch (event.keyCode) {
+		case 37: //Left Arrow
+			window.isLeftDown = true;
+			break;
+		case 39: //Right Arrow
+			window.isRightDown = true;
+			break;
+		case 65: //A
+			window.isADown = true;
+			break;
 	}
 }
 
 function onKeyUp(event) {
 	'use strict';
-	if(event.keyCode == 65) { //A
-		window.isADown = false;
-	}
-	if(event.keyCode == 83) { //S
-		window.isSDown = false;	
-	}
-	if(event.keyCode == 87) { //W
-		window.isWDown = false;
-	}
-	if(event.keyCode == 68) { //D
-		window.isDDown = false;
+	switch (event.keyCode) {
+		case 37: //Left Arrow
+			window.isLeftDown = false;
+			break;
+		case 39: //Right Arrow
+			window.isRightDown = false;
+			break;
+		case 65: //A
+			window.isADown = false;
+			break;
 	}
 }
 
 function animate() {
 	'use strict';
 
-	if(window.isADown) {
+	if(window.isLeftDown) {
 		ship.position.x -= 5;
 	}
-	if(window.isSDown) {
-		ship.position.y -= 5;
+	else if(window.isRightDown) {
+		ship.position.x += 5;		
 	}
-	if(window.isWDown) {
-		ship.position.y += 5;
-	}
-	if(window.isDDown) {
-		ship.position.x += 5;
+	else if(window.isADown) {
+		scene.traverse(function (node) {
+			if (node instanceof THREE.Mesh) {
+				node.material.wireframe = !node.material.wireframe;
+			}
+		});
 	}
 	render();
 	requestAnimationFrame(animate);
@@ -147,7 +169,7 @@ function init() {
 
        createScene();
 	   createCamera();
-	   render();  
+	   render(); 
 
        window.addEventListener("resize", onResize);   
        window.addEventListener("keydown", onKeyDown);
