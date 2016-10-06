@@ -5,5 +5,6 @@ function createScene() {
       
       createShip(-100, -100 ,0);
       //createSquid(0, 0, 0);
+      createAlien(0, 0, 0);
       //createPlayField(getSize().innerWidth, getSize().innerHeight, 0);
 }
