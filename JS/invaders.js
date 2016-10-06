@@ -121,7 +121,11 @@ function onKeyDown(event) {
 			window.isRightDown = true;
 			break;
 		case 65: //A
-			window.isADown = true;
+			scene.traverse(function (node) {
+			if (node instanceof THREE.Mesh) {
+				node.material.wireframe = !node.material.wireframe;
+			}
+			});
 			break;
 	}
 }
@@ -149,13 +153,6 @@ function animate() {
 	}
 	else if(window.isRightDown) {
 		ship.position.x += 5;		
-	}
-	else if(window.isADown) {
-		scene.traverse(function (node) {
-			if (node instanceof THREE.Mesh) {
-				node.material.wireframe = !node.material.wireframe;
-			}
-		});
 	}
 	render();
 	requestAnimationFrame(animate);
