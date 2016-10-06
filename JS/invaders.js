@@ -17,26 +17,6 @@ function render() {
 	playField.position.y = 0;
 	playField.position.z = 0;
 }*/
-
-function createCamera() {
-      'use strict';  
-      camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 1, 1000 );
-      camera.position.x = 0;
-      camera.position.y = 0;
-      camera.position.z = 750;
-      camera.lookAt(scene.position);
-}
-
-function createScene() {
-      'use strict';
-      scene = new THREE.Scene();
-      //scene.add(new THREE.AxisHelper(10));
-      
-      createShip(-100, -100 ,0);
-      createSquid(0, 0, 0);
-      //createPlayField(getSize().innerWidth, getSize().innerHeight, 0);
-}
-
 function onResize() {
 	'use strict';
 	renderer.setSize(window.innerWidth, window.innerHeight);
@@ -49,39 +29,7 @@ function onResize() {
 	//render();
 }
 
-function onKeyDown(event) {
-	'use strict';
-	switch (event.keyCode) {
-		case 37: //Left Arrow
-			window.isLeftDown = true;
-			break;
-		case 39: //Right Arrow
-			window.isRightDown = true;
-			break;
-		case 65: //A
-			scene.traverse(function (node) {
-			if (node instanceof THREE.Mesh) {
-				node.material.wireframe = !node.material.wireframe;
-			}
-			});
-			break;
-	}
-}
 
-function onKeyUp(event) {
-	'use strict';
-	switch (event.keyCode) {
-		case 37: //Left Arrow
-			window.isLeftDown = false;
-			break;
-		case 39: //Right Arrow
-			window.isRightDown = false;
-			break;
-		case 65: //A
-			window.isADown = false;
-			break;
-	}
-}
 
 function animate() {
 	'use strict';
