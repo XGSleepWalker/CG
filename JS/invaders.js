@@ -1,123 +1,11 @@
 var camera, scene, renderer;
-var ship;
+var ship, alien;
 
 function render() {
       'use strict';
       renderer.render(scene, camera);
 }
 
-function addShipBase1(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(40, 30, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-	  
-	  obj.add(mesh);
-}
-
-function addShipBase2(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(40, 30, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-	  
-	  obj.add(mesh);
-}
-
-function addShipWeaponMount(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(60, 6, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-	  
-	  obj.add(mesh);
-}
-
-function addShipWeaponSupport(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(20, 20, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-	  
-	  obj.add(mesh);
-}
-
-function addShipWeaponEnd(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(8, 8, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-	  
-	  obj.add(mesh);
-}
-
-function createShip(x, y, z) {
-      'use strict';	
-      ship = new THREE.Object3D();
-      var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-      
-      addShipBase1(ship, -20, 0, 0, material);
-      addShipBase2(ship, 20, 0, 0, material);
-	  addShipWeaponMount(ship, 0, 18, 0, material);
-	  addShipWeaponSupport(ship, 0, 26, 0, material);
-	  addShipWeaponEnd(ship, 0, 40, 0, material);
-      
-      scene.add(ship);
-      
-      ship.position.x = x;
-      ship.position.y = y;
-      ship.position.z = z;
-}
-function addSquidHead1(obj, x, y, z, material){
-	var geometry = new THREE.CubeGeometry(10,5,0);
-	var mesh = new THREE.Mesh(geometry, material);
-	mesh.position.set(x,y,z);
-
-	obj.add(mesh);
-
-}
-function addSquidHead2(obj, x, y, z, material){
-	var geometry = new THREE.CubeGeometry(20,5,0);
-	var mesh = new THREE.Mesh(geometry, material);
-	mesh.position.set(x,y,z);
-	obj.add(mesh);
-}
-function addSquidHead3(obj, x, y, z, material){
-	var geometry = new THREE.CubeGeometry(30, 5, 0);
-	var mesh = new THREE.Mesh(geometry, material);
-	mesh.position.set(x,y,z);
-	obj.add(mesh);
-}
-function addSquidEyesLeftSide(obj, x,y,z, material){
-	var geometry = new THREE.CubeGeometry(10, 5, 0);
-	var mesh = new THREE.Mesh(geometry, material);
-	mesh.position.set(x,y,z);
-	obj.add(mesh);
-}
-function addSquidEyesCenterSide(obj, x,y,z, material){
-	var geometry = new THREE.CubeGeometry(15, 5, 0);
-	var mesh = new THREE.Mesh(geometry, material);
-	mesh.position.set(x,y,z);
-	obj.add(mesh);
-}
-function addSquidEyesRightSide(obj, x,y,z, material){
-	var geometry = new THREE.CubeGeometry(10,5,0);
-	var mesh = new THREE.Mesh(geometry, material);
-	mesh.position.set(x,y,z);
-	obj.add(mesh);
-}
-function createSquid(x, y, z){
-	'use strict';
-	var alien = new THREE.Object3D();
-	var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-
-
-	scene.add(alien);
-	alien.position.x = x;
-	alien.position.y = y;
-	alien.position.z = z;
-
-}
 /*function createPlayField(x, y, z) {
 	'use strict';
 	var material = new THREE.NoColors();
@@ -139,12 +27,13 @@ function createCamera() {
       camera.lookAt(scene.position);
 }
 
-function createScene() 	{
+function createScene() {
       'use strict';
       scene = new THREE.Scene();
       //scene.add(new THREE.AxisHelper(10));
       
       createShip(-100, -100 ,0);
+      createSquid(0, 0, 0);
       //createPlayField(getSize().innerWidth, getSize().innerHeight, 0);
 }
 
