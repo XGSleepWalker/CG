@@ -1,5 +1,5 @@
 var camera, scene, renderer;
-var ship, alien;
+var ship, squid, alien;
 
 function render() {
       'use strict';
