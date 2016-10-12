@@ -3,9 +3,11 @@ function onKeyDown(event) {
 	switch (event.keyCode) {
 		case 37: //Left Arrow
 			window.isLeftDown = true;
+			window.isLeftUp = false;
 			break;
 		case 39: //Right Arrow
 			window.isRightDown = true;
+			window.isRightUp = false;
 			break;
 		case 65: //A
 			scene.traverse(function (node) {
@@ -22,9 +24,11 @@ function onKeyUp(event) {
 	switch (event.keyCode) {
 		case 37: //Left Arrow
 			window.isLeftDown = false;
+			window.isLeftUp = true;
 			break;
 		case 39: //Right Arrow
 			window.isRightDown = false;
+			window.isRightUp = true;
 			break;
 	}
 }

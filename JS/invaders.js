@@ -1,6 +1,9 @@
 var camera, scene, renderer;
 var ship, squid, alien;
 var squidscale = 4;
+var actualVelocity = 5;
+var momentaneousAcceleration = 0;
+var maximumVelocity = 15;
 
 function render() {
       'use strict';
@@ -36,10 +39,28 @@ function animate() {
 	'use strict';
 
 	if(window.isLeftDown) {
-		ship.position.x -= 5;
+		if(momentaneousAcceleration<= maximumVelocity)
+		{
+			momentaneousAcceleration = momentaneousAcceleration + 1;
+		}
+		ship.position.x -= actualVelocity + momentaneousAcceleration;
+
 	}
 	else if(window.isRightDown) {
-		ship.position.x += 5;		
+		console.log("ship position x: " + ship.position.x);
+		console.log("acceleration: "+momentaneousAcceleration);
+		console.log("initial velocity: "+actualVelocity);
+		if(momentaneousAcceleration <= maximumVelocity)
+		{
+			momentaneousAcceleration = momentaneousAcceleration + 1;
+		}
+		ship.position.x += actualVelocity + momentaneousAcceleration;
+	}
+	else if(window.isLeftUp){
+		momentaneousAcceleration = 0;
+	}
+	else if(window.isRightUp){
+		momentaneousAcceleration = 0;
 	}
 	render();
 	requestAnimationFrame(animate);
