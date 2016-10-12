@@ -1,5 +1,6 @@
 var camera, scene, renderer;
 var ship, squid, alien;
+var squidscale = 4;
 
 function render() {
       'use strict';
