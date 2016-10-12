@@ -13,7 +13,7 @@ function onKeyDown(event) {
 				node.material.wireframe = !node.material.wireframe;
 			}
 			});
-			break;	
+			break;
 	}
 }
 
