@@ -6,17 +6,6 @@ var contSquid = 8;
 
 function createAlienSquad(x, y, z) {
 	var i, j;
-	/*for (i = 1; i <= aliensLines; i++) {
-		for (j = 1; j <= aliensPerLine; j++) {
-			createAlien(x + (aliensGap*j), y + (aliensGap*i), z);
-		}
-	}
-
-	for (i = 1; i <= squidLines; i++) {
-		for (j = 1; j <= squidsPerLine; j++) {
-			createSquid(x + (aliensGap*j), ySquid + (aliensGap*i), z);
-		}
-	}*/
 	for (i = 1; i <= enemyLines; i++){
 		for(j = 1; j <= enemiesPerLine; j++){
 			var random = Math.random() * 100;
@@ -42,13 +31,4 @@ function createScene() {
 
 	createAlienSquad(-190, 0, 0);
 	createShip(0, -400 ,0);
-	/*createSquid(-105, -70, 0);
-	createSquid(-35, -70, 0);
-	createSquid(35, -70, 0);
-	createSquid(105, -70, 0);
-	createAlien(-105, 0, 0);
-	createAlien(-35, 0, 0);
-	createAlien(35, 0, 0);
-	createAlien(105, 0, 0);*/
-	//createPlayField(getSize().innerWidth, getSize().innerHeight, 0);
 }

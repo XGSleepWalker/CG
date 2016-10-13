@@ -1,54 +1,40 @@
 var camera, scene, renderer;
 var ship, squid, alien;
 var squidscale = 4;
-var actualVelocity = 5;
 var momentaneousAcceleration = 0;
 var maximumVelocity = 15;
 
 function render() {
-      'use strict';
-      renderer.render(scene, camera);
+	'use strict';
+	renderer.render(scene, camera);
 }
 
-/*function createPlayField(x, y, z) {
-	'use strict';
-	var material = new THREE.NoColors();
-	var geometry = new THREE.BoxGeometry(x, y, z);
-	var playField = new THREE.Mesh(geometry, material);
-	
-	scene.add(playField);
-	playField.position.x = 0;
-	playField.position.y = 0;
-	playField.position.z = 0;
-}*/
 function onResize() {
 	'use strict';
 	 	renderer.setSize(window.innerWidth, window.innerHeight);
-		camera.aspect = window.innerWidth/window.innerHeight;//renderer.getSize().width / renderer.getSize().height;
+		camera.aspect = window.innerWidth/window.innerHeight;
 		camera.updateProjectionMatrix();
 }
 
 function shipMovement() {
 	if(window.isLeftDown && ship.position.x > -500) {
 		console.log("ship position x: " + ship.position.x);
-		console.log("acceleration: "+momentaneousAcceleration);
-		console.log("initial velocity: "+actualVelocity);
+		console.log("velocity: "+momentaneousAcceleration);
 		if(momentaneousAcceleration<= maximumVelocity)
 		{
 			momentaneousAcceleration = momentaneousAcceleration + 1;
 		}
-		ship.position.x -= /*actualVelocity*/ + momentaneousAcceleration;
+		ship.position.x -=  momentaneousAcceleration;
 
 	}
 	else if(window.isRightDown && ship.position.x < 500) {
 		console.log("ship position x: " + ship.position.x);
-		console.log("acceleration: "+momentaneousAcceleration);
-		console.log("initial velocity: "+actualVelocity);
+		console.log("velocity: "+momentaneousAcceleration);
 		if(momentaneousAcceleration <= maximumVelocity)
 		{
 			momentaneousAcceleration = momentaneousAcceleration + 1;
 		}
-		ship.position.x += /*actualVelocity*/ + momentaneousAcceleration;
+		ship.position.x += momentaneousAcceleration;
 	}
 	else if(window.isLeftUp){
 		momentaneousAcceleration = 0;
@@ -61,7 +47,7 @@ function shipMovement() {
 
 function animate() {
 	'use strict';
-	setTimeout("shipMovement()", 133);
+	setTimeout(shipMovement(), 133);
 
 	render();
 	requestAnimationFrame(animate);
@@ -74,9 +60,9 @@ function init() {
        document.body.appendChild(renderer.domElement);
 
        createScene();
-	   createCamera(); 
+	   createCamera();
 
-       window.addEventListener("resize", onResize, false);   
+       window.addEventListener("resize", onResize, false);
        window.addEventListener("keydown", onKeyDown);
        window.addEventListener("keyup", onKeyUp);
 }
