@@ -30,8 +30,8 @@ function createAlienSquad(x, y, z) {
 			}
 		}
 	}
-	console.log("# of aliens: "+contAlien);
-	console.log("# of squids: "+contSquid);
+	console.log("# of aliens: "+(8-contAlien));
+	console.log("# of squids: "+(8-contSquid));
 }
 
 function createScene() {
