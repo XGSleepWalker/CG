@@ -1,7 +1,3 @@
-var aliensLines = 2; //number of lines with aliens
-var aliensPerLine = 4; //number of aliens in each line
-var squidLines = 2; //number of lines with squids
-var squidsPerLine = 4; //number of squids in each line
 var aliensGap = 70; //space between each alien
 var enemyLines = 4;
 var enemiesPerLine = 4;
@@ -10,7 +6,6 @@ var contSquid = 8;
 
 function createAlienSquad(x, y, z) {
 	var i, j;
-	var ySquid = y - (aliensGap*aliensLines);
 	/*for (i = 1; i <= aliensLines; i++) {
 		for (j = 1; j <= aliensPerLine; j++) {
 			createAlien(x + (aliensGap*j), y + (aliensGap*i), z);
@@ -25,7 +20,7 @@ function createAlienSquad(x, y, z) {
 	for (i = 1; i <= enemyLines; i++){
 		for(j = 1; j <= enemiesPerLine; j++){
 			var random = Math.random() * 100;
-			if(random < 50 || contSquid == 0 && contAlien != 0){
+			if((random < 50 || contSquid == 0) && contAlien != 0){
 				createAlien(x + (aliensGap*j), y + (aliensGap*i), z);
 				contAlien--;
 			}
@@ -35,6 +30,8 @@ function createAlienSquad(x, y, z) {
 			}
 		}
 	}
+	console.log("# of aliens: "+contAlien);
+	console.log("# of squids: "+contSquid);
 }
 
 function createScene() {
