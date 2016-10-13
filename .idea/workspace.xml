@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99634a32-04ed-4f30-94e7-5d38bc2ef6fe" name="Default" comment="Code clean-up - thank you @David">
+    <list default="true" id="99634a32-04ed-4f30-94e7-5d38bc2ef6fe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/invaders.js" afterPath="$PROJECT_DIR$/js/invaders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scene.js" afterPath="$PROJECT_DIR$/js/scene.js" />
     </list>
     <ignored path="CG.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,11 +38,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="invaders.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="invaders.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/invaders.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+                <state relative-caret-position="340">
+                  <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -99,7 +98,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="scene.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="scene.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/scene.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="187">
@@ -147,8 +146,8 @@
         <option value="$PROJECT_DIR$/JS/scene.js" />
         <option value="$PROJECT_DIR$/js/alien.js" />
         <option value="$PROJECT_DIR$/js/scene.js" />
-        <option value="$PROJECT_DIR$/js/invaders.js" />
         <option value="$PROJECT_DIR$/js/camera.js" />
+        <option value="$PROJECT_DIR$/js/invaders.js" />
       </list>
     </option>
   </component>
@@ -311,7 +310,7 @@
       <workItem from="1476312197219" duration="1761000" />
       <workItem from="1476359670666" duration="1657000" />
       <workItem from="1476364321603" duration="1273000" />
-      <workItem from="1476365616288" duration="691000" />
+      <workItem from="1476365616288" duration="1414000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Squid Unfinished structure">
       <created>1475753635519</created>
@@ -355,11 +354,18 @@
       <option name="project" value="LOCAL" />
       <updated>1476365665631</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Code clean-up - thank you @David">
+      <created>1476366322332</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1476366322332</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22101000" />
+    <option name="totallyTimeSpent" value="22824000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
@@ -403,7 +409,8 @@
     <MESSAGE value="Alien distribution bug fix" />
     <MESSAGE value="Alien distribution bug fix + code cleanup" />
     <MESSAGE value="Console log bug fix - # of aliens/squids" />
-    <option name="LAST_COMMIT_MESSAGE" value="Console log bug fix - # of aliens/squids" />
+    <MESSAGE value="Code clean-up - thank you @David" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code clean-up - thank you @David" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -740,14 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/invaders.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ship.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
@@ -772,14 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/alien.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/camera.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -792,6 +783,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/alien.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/invaders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding />
         </state>
       </provider>

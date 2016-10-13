@@ -17,7 +17,8 @@ function onResize() {
 }
 
 function shipMovement() {
-	if(window.isLeftDown && ship.position.x > -500) {
+	if(window.isLeftDown && window.isRightDown) momentaneousAcceleration = 0;
+	else if(window.isLeftDown && ship.position.x > -500) {
 		console.log("ship position x: " + ship.position.x);
 		console.log("velocity: "+momentaneousAcceleration);
 		if(momentaneousAcceleration<= maximumVelocity)
