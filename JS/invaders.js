@@ -29,7 +29,10 @@ function onResize() {
 }
 
 function shipMovement() {
-	if(window.isLeftDown) {
+	if(window.isLeftDown && ship.position.x > -500) {
+		console.log("ship position x: " + ship.position.x);
+		console.log("acceleration: "+momentaneousAcceleration);
+		console.log("initial velocity: "+actualVelocity);
 		if(momentaneousAcceleration<= maximumVelocity)
 		{
 			momentaneousAcceleration = momentaneousAcceleration + 1;
@@ -37,7 +40,7 @@ function shipMovement() {
 		ship.position.x -= /*actualVelocity*/ + momentaneousAcceleration;
 
 	}
-	else if(window.isRightDown) {
+	else if(window.isRightDown && ship.position.x < 500) {
 		console.log("ship position x: " + ship.position.x);
 		console.log("acceleration: "+momentaneousAcceleration);
 		console.log("initial velocity: "+actualVelocity);
@@ -58,7 +61,7 @@ function shipMovement() {
 
 function animate() {
 	'use strict';
-	setTimeout("shipMovement()", 10);
+	setTimeout("shipMovement()", 133);
 
 	render();
 	requestAnimationFrame(animate);
