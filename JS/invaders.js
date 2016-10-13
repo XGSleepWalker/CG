@@ -23,27 +23,18 @@ function render() {
 }*/
 function onResize() {
 	'use strict';
-	renderer.setSize(window.innerWidth, window.innerHeight);
-
-	if (window.innerHeight > 0 && window.innerWidth > 0) {
-		camera.aspect = renderer.getSize().width / renderer.getSize().height;
+	 	renderer.setSize(window.innerWidth, window.innerHeight);
+		camera.aspect = window.innerWidth/window.innerHeight;//renderer.getSize().width / renderer.getSize().height;
 		camera.updateProjectionMatrix();
-	}
-
-	//render();
 }
 
-
-
-function animate() {
-	'use strict';
-
+function shipMovement() {
 	if(window.isLeftDown) {
 		if(momentaneousAcceleration<= maximumVelocity)
 		{
 			momentaneousAcceleration = momentaneousAcceleration + 1;
 		}
-		ship.position.x -= actualVelocity + momentaneousAcceleration;
+		ship.position.x -= /*actualVelocity*/ + momentaneousAcceleration;
 
 	}
 	else if(window.isRightDown) {
@@ -54,7 +45,7 @@ function animate() {
 		{
 			momentaneousAcceleration = momentaneousAcceleration + 1;
 		}
-		ship.position.x += actualVelocity + momentaneousAcceleration;
+		ship.position.x += /*actualVelocity*/ + momentaneousAcceleration;
 	}
 	else if(window.isLeftUp){
 		momentaneousAcceleration = 0;
@@ -62,6 +53,13 @@ function animate() {
 	else if(window.isRightUp){
 		momentaneousAcceleration = 0;
 	}
+
+}
+
+function animate() {
+	'use strict';
+	setTimeout("shipMovement()", 10);
+
 	render();
 	requestAnimationFrame(animate);
 }
@@ -73,10 +71,10 @@ function init() {
        document.body.appendChild(renderer.domElement);
 
        createScene();
-	   createCamera();
-	   render(); 
+	   createCamera(); 
 
-       window.addEventListener("resize", onResize);   
+       window.addEventListener("resize", onResize, false);   
        window.addEventListener("keydown", onKeyDown);
        window.addEventListener("keyup", onKeyUp);
 }
+

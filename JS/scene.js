@@ -40,7 +40,7 @@ function createAlienSquad(x, y, z) {
 function createScene() {
 	'use strict';
 	scene = new THREE.Scene();
-	//scene.add(new THREE.AxisHelper(10000));
+	scene.add(new THREE.AxisHelper(100));
 
 
 	createAlienSquad(-190, 0, 0);
