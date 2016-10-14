@@ -4,10 +4,14 @@ function onKeyDown(event) {
 		case 37: //Left Arrow
 			window.isLeftDown = true;
 			window.isLeftUp = false;
+			date = new Date();
+			timeBefore = date.getTime();
 			break;
 		case 39: //Right Arrow
 			window.isRightDown = true;
 			window.isRightUp = false;
+			date = new Date();
+			timeBefore = date.getTime();
 			break;
 		case 65: //A
 			scene.traverse(function (node) {

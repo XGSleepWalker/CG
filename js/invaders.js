@@ -2,7 +2,13 @@ var camera, scene, renderer;
 var ship, squid, alien;
 var squidscale = 4;
 var momentaneousAcceleration = 0;
+var startVelocity = 1;
 var maximumVelocity = 15;
+var date;
+var timeBefore;
+var timeNow;
+var timeDelta;
+var contador = 0;
 
 function render() {
 	'use strict';
@@ -17,26 +23,34 @@ function onResize() {
 }
 
 function shipMovement() {
-	if(window.isLeftDown && window.isRightDown) momentaneousAcceleration = 0;
-	else if(window.isLeftDown && ship.position.x > -500) {
-		console.log("ship position x: " + ship.position.x);
-		console.log("velocity: "+momentaneousAcceleration);
-		if(momentaneousAcceleration<= maximumVelocity)
-		{
-			momentaneousAcceleration = momentaneousAcceleration + 1;
-		}
-		ship.position.x -=  momentaneousAcceleration;
+	if (window.isLeftDown || window.isRightDown) {
+		date = new Date();
+		timeNow = date.getTime();
+		timeDelta = (timeNow - timeBefore);
+		contador += timeDelta;
+		timeBefore = timeNow;
+		//console.log("Contador: " + contador);
+		if(window.isLeftDown && window.isRightDown) momentaneousAcceleration = 0;
+		if (contador > 133) { 
+			if(momentaneousAcceleration <= maximumVelocity)
+			{
+				momentaneousAcceleration = momentaneousAcceleration + 1;
+			}
+			contador = 0;}
+		
+		if(window.isLeftDown && ship.position.x > -700) {
+			//console.log("ship position x: " + ship.position.x);
+			console.log("velocity: "+momentaneousAcceleration);
+			ship.position.x -=  momentaneousAcceleration;
 
-	}
-	else if(window.isRightDown && ship.position.x < 500) {
-		console.log("ship position x: " + ship.position.x);
-		console.log("velocity: "+momentaneousAcceleration);
-		if(momentaneousAcceleration <= maximumVelocity)
-		{
-			momentaneousAcceleration = momentaneousAcceleration + 1;
 		}
-		ship.position.x += momentaneousAcceleration;
+		if(window.isRightDown && ship.position.x < 700) {
+			//console.log("ship position x: " + ship.position.x);
+			console.log("velocity: "+momentaneousAcceleration);	
+			ship.position.x += momentaneousAcceleration;
+		}
 	}
+	
 	else if(window.isLeftUp){
 		momentaneousAcceleration = 0;
 	}
@@ -48,7 +62,7 @@ function shipMovement() {
 
 function animate() {
 	'use strict';
-	setTimeout(shipMovement(), 133);
+	shipMovement();
 
 	render();
 	requestAnimationFrame(animate);
