@@ -1,58 +1,20 @@
-function addShipBase1(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(40, 30, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-    
+function addShipPart(obj, x, y, z, sizex, sizey, sizez) {
+    'use strict';
+    var geometry = new THREE.CubeGeometry(sizex, sizey, sizez);
+    var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
+    var mesh = new THREE.Mesh(geometry, material);
+    mesh.position.set(x, y, z);
     obj.add(mesh);
-}
-
-function addShipBase2(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(40, 30, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-    
-    obj.add(mesh);
-}
-
-function addShipWeaponMount(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(60, 6, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-    
-    obj.add(mesh);
-}
-
-function addShipWeaponSupport(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(20, 20, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-    
-    obj.add(mesh);
-}
-
-function addShipWeaponEnd(obj, x, y, z, material) {
-      'use strict';
-      var geometry = new THREE.CubeGeometry(8, 8, 0);
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(x, y, z);
-    
-      obj.add(mesh);
 }
 
 function createShip(x, y, z) {
       'use strict'; 
       ship = new THREE.Object3D();
-      var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
       
-      addShipBase1(ship, -20, 0, 0, material);
-      addShipBase2(ship, 20, 0, 0, material);
-      addShipWeaponMount(ship, 0, 18, 0, material);
-      addShipWeaponSupport(ship, 0, 26, 0, material);
-      addShipWeaponEnd(ship, 0, 40, 0, material);
+      addShipPart(ship, 0, 0, 0, 80, 30, 0); //Ship Base
+      addShipPart(ship, 0, 18, 0, 60, 6, 0); //Ship Weapon Mount
+      addShipPart(ship, 0, 26, 0, 20, 20, 0); //Ship Weapon Support
+      addShipPart(ship, 0, 40, 0, 8, 8, 0); //Ship Weapon End
       
       scene.add(ship);
       

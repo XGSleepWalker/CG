@@ -1,5 +1,5 @@
 var camera, scene, renderer;
-var ship, squid, alien;
+var ship, squid, alien, bullet;
 var squidscale = 4;
 var momentaneousAcceleration = 0;
 var startVelocity = 1;
@@ -22,31 +22,39 @@ function onResize() {
 		camera.updateProjectionMatrix();
 }
 
+function timeCount() {
+	date = new Date();
+	timeNow = date.getTime();
+	if (!timeBefore) timeBefore = timeNow;
+	timeDelta = timeNow - timeBefore;
+	contador += timeDelta;
+	timeBefore = timeNow;
+}
+
 function shipMovement() {
-	if (window.isLeftDown || window.isRightDown) {
-		date = new Date();
-		timeNow = date.getTime();
-		timeDelta = (timeNow - timeBefore);
-		contador += timeDelta;
-		timeBefore = timeNow;
+	if (window.isLeftDown || window.isRightDown) {		
 		//console.log("Contador: " + contador);
+		timeCount();
 		if(window.isLeftDown && window.isRightDown) momentaneousAcceleration = 0;
-		if (contador > 133) { 
-			if(momentaneousAcceleration <= maximumVelocity)
-			{
+
+		if (contador > 66) {
+			if(momentaneousAcceleration <= maximumVelocity) {
+				console.log("velocity: "+momentaneousAcceleration);
 				momentaneousAcceleration = momentaneousAcceleration + 1;
 			}
-			contador = 0;}
+			contador -= 66;
+		}
+	
 		
 		if(window.isLeftDown && ship.position.x > -700) {
 			//console.log("ship position x: " + ship.position.x);
-			console.log("velocity: "+momentaneousAcceleration);
+			//console.log("velocity: "+momentaneousAcceleration);
 			ship.position.x -=  momentaneousAcceleration;
 
 		}
 		if(window.isRightDown && ship.position.x < 700) {
 			//console.log("ship position x: " + ship.position.x);
-			console.log("velocity: "+momentaneousAcceleration);	
+			//console.log("velocity: "+momentaneousAcceleration);	
 			ship.position.x += momentaneousAcceleration;
 		}
 	}
@@ -60,12 +68,18 @@ function shipMovement() {
 
 }
 
+function bulletMovement() {
+
+}
+
 function animate() {
 	'use strict';
+	//timeCount();
 	shipMovement();
-
+	//bulletMovement();
 	render();
 	requestAnimationFrame(animate);
+
 }
 
 function init() {

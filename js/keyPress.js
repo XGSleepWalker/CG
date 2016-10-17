@@ -20,6 +20,9 @@ function onKeyDown(event) {
 			}
 			});
 			break;
+		case 66: //B
+			createBullet(ship.position.x, ship.position.y + 50, ship.position.z);
+			break;
 	}
 }
 

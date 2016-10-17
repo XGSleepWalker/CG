@@ -71,20 +71,21 @@ function createAlien(x, y, z) {
 	'use strict';
 	alien = new THREE.Object3D();
 
-    addAlienLeg(alien, 0, 0, 0);
-    addAlienLeg(alien, 39, 0, 0);
-    addAlienBase1(alien, 19, 5, 0);
-    addAlienMouth(alien, 7, 0, 0);
-    addAlienBase2(alien, 13, -5, 0);
-    addAlienMouth(alien, 31, 0, 0);
-    addAlienBase2(alien, 25, -5, 0);
-    addAlienBase2(alien, 5, 9, 0);
-    addAlienBase2(alien, 33, 9, 0);
-    addAlienHead1(alien, 19, 13, 0);
-    addAlienHead2(alien, 19, 17, 0);
-    addAlienHead3(alien, 19, 21, 0);
-    addAlienHead3(alien, 19, 9, 0); 
+    addAlienLeg(alien, -19, -5, 0);
+    addAlienLeg(alien, 20, -5, 0);
+    addAlienBase1(alien, 0, 0, 0);
+    addAlienMouth(alien, -12, -5, 0);
+    addAlienBase2(alien, -6, -10, 0);
+    addAlienMouth(alien, 12, -5, 0);
+    addAlienBase2(alien, 6, -10, 0);
+    addAlienBase2(alien, -14, 4, 0);
+    addAlienBase2(alien, 14, 4, 0);
+    addAlienHead1(alien, 0, 8, 0);
+    addAlienHead2(alien, 0, 12, 0);
+    addAlienHead3(alien, 0, 16, 0);
+    addAlienHead3(alien, 0, 4, 0); 
 
+    //alien.scale.set(2, 2, 0);
     scene.add(alien);
 
     alien.position.x = x;
