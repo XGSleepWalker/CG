@@ -11,6 +11,9 @@ var timeNow;
 var timeDelta;
 var contador = 0;
 var clock;
+var bullets = [];
+var activeBullets = [];
+var maxBulletsNumber = 10;
 
 function render() {
 	'use strict';
@@ -73,9 +76,19 @@ function shipMovement() {
 }
 
 function bulletMovement(delta) {
-	bullet.position.y += 30*delta;
-	//con
-	if (bullet.position.y >= 0) scene.remove(bullet);
+	for ( var i = 0; i < maxBulletsNumber; i++) {
+		
+		if (activeBullets[i] == 1) {
+			console.log("bullet position: " + bullets[0].position.y);
+			bullets[i].position.y += 100*delta;
+			if (bullets[i].position.y >= 477) { 
+				scene.remove(bullets[i]);
+				activeBullets[i] = 0;
+			}
+		}
+		
+	}
+	
 }
 
 function animate() {
@@ -83,7 +96,7 @@ function animate() {
 	//timeCount();
 	var deltaN = clock.getDelta();
 	shipMovement();
-	if (bullet) bulletMovement(deltaN);
+	bulletMovement(deltaN);
 	requestAnimationFrame(animate);
 	render();
 }

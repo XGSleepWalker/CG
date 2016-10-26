@@ -31,4 +31,5 @@ function createScene() {
 
 	createAlienSquad(-190, 0, 0);
 	createShip(0, -400 ,0);
+	createBullet();
 }

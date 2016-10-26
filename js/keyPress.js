@@ -1,3 +1,4 @@
+window.canFire = true;
 function onKeyDown(event) {
 	'use strict';
 	switch (event.keyCode) {
@@ -21,7 +22,10 @@ function onKeyDown(event) {
 			});
 			break;
 		case 66: //B
-			createBullet(ship.position.x, ship.position.y + 50, ship.position.z);
+			if(window.canFire) {
+				loadBullet();
+				window.canFire = false;
+			}
 			break;
 	}
 }
@@ -37,5 +41,7 @@ function onKeyUp(event) {
 			window.isRightDown = false;
 			window.isRightUp = true;
 			break;
+		case 66:
+			window.canFire = true;
 	}
 }
