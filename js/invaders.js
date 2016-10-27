@@ -13,8 +13,9 @@ var contador = 0;
 var clock;
 var bullets = [];
 var enemies = [];
-var activeBullets = [];W
+var activeBullets = [];
 var maxBulletsNumber = 10;
+var camera1, camera2, camera3;
 
 function render() {
 	'use strict';
@@ -27,7 +28,15 @@ function onResize() {
 		aspectRatio = camera.aspect;
 		camera.updateProjectionMatrix();
 		renderer.setSize(window.innerWidth, window.innerHeight);
-		createCamera1();
+		if(camera1){
+			createCamera1();
+		}
+		if(camera2){
+			createCamera2();
+		}
+		if(camera3){
+			createCamera3();
+		}
 }
 
 function timeCount() {
@@ -92,16 +101,52 @@ function bulletMovement(delta) {
 	
 }
 
+
+function enemyMovement(delta){
+	for ( var i = 0; i < enemies.length; i++){
+		enemies[i][0].position.x += 100*delta*enemies[i][1];
+		enemies[i][0].position.y += 100*delta*enemies[i][2];
+	}
+}
+
+
 function animate() {
 	'use strict';
 	//timeCount();
 	var deltaN = clock.getDelta();
+	checkCollisionBullets();
+	checkCollisionAliens();
 	shipMovement();
+	enemyMovement(deltaN);
 	bulletMovement(deltaN);
-
 	requestAnimationFrame(animate);
 	render();
 }
+
+function checkCollisionAliens(){
+	
+	for(i = 0; i < enemies.length; i++){
+		for(j = 0; j < enemies.length; j++){
+			if(i != j){
+				hasCollision(enemies[i][0],enemies[j][0],i);
+			}
+		}
+	}
+}
+
+function checkCollisionBullets(){
+	for(i = 0; i < enemies.length; i++){
+		for(j = 0; j < bullets.length; j++){
+			if(hasCollision(enemies[i][0],bullets[j],i)){
+				scene.remove(enemies[i][0]);
+				scene.remove(bullets[j]);
+			}
+		}
+	}
+}
+
+
+
 
 function init() {
        'use strict';

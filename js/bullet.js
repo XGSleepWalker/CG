@@ -12,6 +12,9 @@ function createBullet() {
 		bullet.scale.set(4, 4, 4);
 		bullets[i] = bullet;
 		activeBullets[i] = 0;
+		bullets[i].position.x = 1500;
+		bullets[i].position.y = 1500;
+		bullets[i].position.z = 1500;
 	}
 	
 	//scene.add(bullet);
