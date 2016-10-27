@@ -12,7 +12,8 @@ var timeDelta;
 var contador = 0;
 var clock;
 var bullets = [];
-var activeBullets = [];
+var enemies = [];
+var activeBullets = [];W
 var maxBulletsNumber = 10;
 
 function render() {
@@ -97,6 +98,7 @@ function animate() {
 	var deltaN = clock.getDelta();
 	shipMovement();
 	bulletMovement(deltaN);
+
 	requestAnimationFrame(animate);
 	render();
 }
