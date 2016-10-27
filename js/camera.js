@@ -1,4 +1,4 @@
-function createCamera() {
+function createCamera1() {
       'use strict';  
       viewSize = 1000;
       aspectRatio = window.innerWidth/window.innerHeight;
@@ -7,7 +7,37 @@ function createCamera() {
       camera.position.x = 0;
       camera.position.y = 0;
       camera.position.z = 500;
-      //scene.position.y = -50;
       camera.lookAt(scene.position);
       scene.add(camera);
+}
+
+
+
+function createCamera2() {
+      'use strict';  
+      viewSize = 1000;
+      aspectRatio = window.innerWidth/window.innerHeight;
+	  
+	  camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 1000);
+      camera.position.x = 0;
+      camera.position.y = -525;
+      camera.position.z = 450;
+      camera.lookAt(scene.position);
+      scene.add(camera);
+}
+
+
+
+
+function createCamera3() {
+      'use strict';  
+      viewSize = 1000;
+      aspectRatio = window.innerWidth/window.innerHeight;
+
+	  camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 1000);
+      ship.add(camera);
+	  camera.position.x = 0;
+      camera.position.y = -150;
+      camera.position.z = 400;
+	  camera.rotateOnAxis(new THREE.Vector3(1, 0, 0), 1,57);
 }

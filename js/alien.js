@@ -1,7 +1,7 @@
 function addAlienLeg(obj, x, y, z) {
 	'use strict';
 	var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-	var geometry = new THREE.CubeGeometry(4, 16, 0);
+	var geometry = new THREE.CubeGeometry(4, 16, 20);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x, y, z);
 
@@ -11,7 +11,7 @@ function addAlienLeg(obj, x, y, z) {
 function addAlienBase1(obj, x, y, z) {
 	'use strict';
 	var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-	var geometry = new THREE.CubeGeometry(36, 4, 0);
+	var geometry = new THREE.CubeGeometry(36, 4, 20);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x, y, z);
 
@@ -21,7 +21,7 @@ function addAlienBase1(obj, x, y, z) {
 function addAlienBase2(obj, x, y, z) {
 	'use strict';
 	var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-	var geometry = new THREE.CubeGeometry(8, 4, 0);
+	var geometry = new THREE.CubeGeometry(8, 4, 20);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x, y, z);
 
@@ -31,7 +31,7 @@ function addAlienBase2(obj, x, y, z) {
 function addAlienMouth(obj, x, y, z) {
 	'use strict';
 	var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-	var geometry = new THREE.CubeGeometry(4, 8, 0);
+	var geometry = new THREE.CubeGeometry(4, 8, 20);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x, y, z);
 
@@ -41,7 +41,7 @@ function addAlienMouth(obj, x, y, z) {
 function addAlienHead1(obj, x, y, z) {
 	'use strict';
 	var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-	var geometry = new THREE.CubeGeometry(28, 4, 0);
+	var geometry = new THREE.CubeGeometry(28, 4, 20);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x, y, z);
 
@@ -51,7 +51,7 @@ function addAlienHead1(obj, x, y, z) {
 function addAlienHead2(obj, x, y, z) {
 	'use strict';
 	var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-	var geometry = new THREE.CubeGeometry(20, 4, 0);
+	var geometry = new THREE.CubeGeometry(20, 4, 20);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x, y, z);
 
@@ -61,7 +61,7 @@ function addAlienHead2(obj, x, y, z) {
 function addAlienHead3(obj, x, y, z) {
 	'use strict';
 	var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-	var geometry = new THREE.CubeGeometry(12, 4, 0);
+	var geometry = new THREE.CubeGeometry(12, 4, 20);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x, y, z);
 	obj.add(mesh);

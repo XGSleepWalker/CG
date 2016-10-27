@@ -14,6 +14,15 @@ function onKeyDown(event) {
 			date = new Date();
 			timeBefore = date.getTime();
 			break;
+		case 49: //1
+			createCamera1();
+			break;
+		case 50: //2
+			createCamera2();
+			break;
+		case 51: //3
+			createCamera3();
+			break;
 		case 65: //A
 			scene.traverse(function (node) {
 			if (node instanceof THREE.Mesh) {

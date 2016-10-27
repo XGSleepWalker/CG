@@ -26,7 +26,7 @@ function onResize() {
 		aspectRatio = camera.aspect;
 		camera.updateProjectionMatrix();
 		renderer.setSize(window.innerWidth, window.innerHeight);
-		createCamera();
+		createCamera1();
 }
 
 function timeCount() {
@@ -108,11 +108,10 @@ function init() {
        document.body.appendChild(renderer.domElement);
 
        createScene();
-	   createCamera();
+	   createCamera1();
 	   clock = new THREE.Clock;
 
        window.addEventListener("resize", onResize, false);
        window.addEventListener("keydown", onKeyDown);
        window.addEventListener("keyup", onKeyUp);
 }
-
