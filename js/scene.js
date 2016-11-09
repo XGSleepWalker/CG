@@ -28,10 +28,11 @@ function createAlienSquad(x, y, z) {
 function createScene() {
 	'use strict';
 	scene = new THREE.Scene();
-	scene.add(new THREE.AxisHelper(100));
+	//scene.add(new THREE.AxisHelper(100));
 
 
 	createAlienSquad(-190, 0, 0);
 	createShip(0, -400 ,0);
 	createBullet();
+	createPlayField();
 }
