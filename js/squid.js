@@ -35,21 +35,17 @@ function createSquid(x, y, z){
 	squid.position.z = z;
 	var movementx = (Math.floor((Math.random() * 3) + 1)) - 2;
 	var movementy = (Math.floor((Math.random() * 3) + 1)) - 2;
-<<<<<<< HEAD
+
 	
 	while (movementx == 0 && movementy == 0) {
 		movementx = (Math.floor((Math.random() * 3) + 1)) - 2;
 		movementy = (Math.floor((Math.random() * 3) + 1)) - 2;	
 	}
-=======
->>>>>>> origin/master
 
 	var results = [squid, movementx, movementy];
 
 	return results;
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
+
+

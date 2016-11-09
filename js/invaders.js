@@ -16,11 +16,8 @@ var enemies = [];
 var activeBullets = [];
 var maxBulletsNumber = 10;
 var camera1, camera2, camera3;
-<<<<<<< HEAD
 var directionalLight;
 var pointLights = [];
-=======
->>>>>>> origin/master
 
 function render() {
 	'use strict';
@@ -109,13 +106,8 @@ function bulletMovement(delta) {
 
 function enemyMovement(delta){
 	for ( var i = 0; i < enemies.length; i++){
-<<<<<<< HEAD
 		enemies[i][0].position.x += 75*delta*enemies[i][1];
 		enemies[i][0].position.y += 75*delta*enemies[i][2];
-=======
-		enemies[i][0].position.x += 100*delta*enemies[i][1];
-		enemies[i][0].position.y += 100*delta*enemies[i][2];
->>>>>>> origin/master
 	}
 }
 
@@ -148,16 +140,13 @@ function checkCollisionBullets(){
 	for(i = 0; i < enemies.length; i++){
 		for(j = 0; j < bullets.length; j++){
 			if(hasCollision(enemies[i][0],bullets[j],i)){
-<<<<<<< HEAD
 				enemies[i][0].position.x = 2000;
 				bullets[j].position.x = -2000;
 				scene.remove(enemies[i][0]);
 				scene.remove(bullets[j]);
 				activeBullets[j] = 0;
-=======
 				scene.remove(enemies[i][0]);
 				scene.remove(bullets[j]);
->>>>>>> origin/master
 			}
 		}
 	}
@@ -174,18 +163,11 @@ function init() {
 
        createScene();
 	   createCamera1();
-<<<<<<< HEAD
 	   createDirectionalLight();
 	   createPointLight();
-=======
->>>>>>> origin/master
 	   clock = new THREE.Clock;
 
        window.addEventListener("resize", onResize, false);
        window.addEventListener("keydown", onKeyDown);
        window.addEventListener("keyup", onKeyUp);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master

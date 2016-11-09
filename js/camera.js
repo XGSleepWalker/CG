@@ -3,14 +3,12 @@ function createCamera1() {
       viewSize = 1000;
       aspectRatio = window.innerWidth/window.innerHeight;
       //camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 1, 1000);
-<<<<<<< HEAD
+
       camera = new THREE.OrthographicCamera( aspectRatio*viewSize/ -2, aspectRatio*viewSize / 2, viewSize / 2, viewSize / -2, 1, 1000); // Left, right, top, down, near, far
-=======
-      camera = new THREE.OrthographicCamera( aspectRatio*viewSize/ -2, aspectRatio*viewSize / 2, viewSize / 2, viewSize / -2, 1, 1000);
->>>>>>> origin/master
-	  camera1 = true;
-	  camera2 = false;
-	  camera3 = false;
+
+      camera1 = true;
+      camera2 = false;
+      camera3 = false;
       camera.position.x = 0;
       camera.position.y = 0;
       camera.position.z = 500;
@@ -24,15 +22,12 @@ function createCamera2() {
       'use strict';  
       viewSize = 1000;
       aspectRatio = window.innerWidth/window.innerHeight;
-	  
-<<<<<<< HEAD
-	  camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 2000); //Fov, aspect ratio, near, far
-=======
-	  camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 2000);
->>>>>>> origin/master
-	  camera1 = false;
-	  camera2 = true;
-	  camera3 = false;
+
+      camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 2000); //Fov, aspect ratio, near, far
+
+      camera1 = false;
+      camera2 = true;
+      camera3 = false;
       camera.position.x = 0;
       camera.position.y = -525;
       camera.position.z = 450;
@@ -48,21 +43,15 @@ function createCamera3() {
       viewSize = 1000;
       aspectRatio = window.innerWidth/window.innerHeight;
 
-<<<<<<< HEAD
-	  camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 2000); //Fov, aspect ratio, near, far
-=======
-	  camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 2000);
->>>>>>> origin/master
-	  camera1 = false;
-	  camera2 = false;
-	  camera3 = true;
+      camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 2000); //Fov, aspect ratio, near, far
+      
+      camera1 = false;
+      camera2 = false;
+      camera3 = true;
       ship.add(camera);
-	  camera.position.x = 0;
+      camera.position.x = 0;
       camera.position.y = -150;
       camera.position.z = 400;
-	  camera.rotateOnAxis(new THREE.Vector3(1, 0, 0), 1,57);
-<<<<<<< HEAD
+      camera.rotateOnAxis(new THREE.Vector3(1, 0, 0), 1,57);
+
 }
-=======
-}
->>>>>>> origin/master
