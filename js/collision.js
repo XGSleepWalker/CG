@@ -1,6 +1,10 @@
 var xmin = -700
 var xmax = 700
+<<<<<<< HEAD
 var ymin = -320
+=======
+var ymin = -450
+>>>>>>> origin/master
 var ymax = 450
 
 function hasCollision(obj1, obj2, i){
@@ -10,6 +14,7 @@ function hasCollision(obj1, obj2, i){
 
     var hasCollided = box1.intersectsBox(box2);
 
+<<<<<<< HEAD
 	if (box1.min.x < xmin){
 		enemies[i][1] = 1;
 	}
@@ -21,6 +26,13 @@ function hasCollision(obj1, obj2, i){
 	}
 	if(box1.max.y > ymax){
 		enemies[i][2] = -1;
+=======
+	if (box1.min.x < xmin || box1.max.x > xmax){
+		enemies[i][1] = enemies[i][1]*-1;
+	}
+	if(box1.min.y < ymin || box1.max.y > ymax){
+		enemies[i][2] = enemies[i][2]*-1;
+>>>>>>> origin/master
 	}
 	
 	if(hasCollided){

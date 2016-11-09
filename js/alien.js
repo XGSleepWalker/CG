@@ -1,5 +1,9 @@
 function addAlienPart(obj, x,y,z, sizex,sizey,sizez){
+<<<<<<< HEAD
 	var material = new THREE.MeshPhongMaterial({color:0xff0000});
+=======
+	var material = new THREE.MeshBasicMaterial({color:0x00ff00});
+>>>>>>> origin/master
 	var geometry = new THREE.CubeGeometry(sizex, sizey, sizez);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x,y,z);
@@ -8,7 +12,10 @@ function addAlienPart(obj, x,y,z, sizex,sizey,sizez){
 function createAlien(x, y, z) {
 	'use strict';
 	alien = new THREE.Object3D();
+<<<<<<< HEAD
     alien.name = "alien";
+=======
+>>>>>>> origin/master
 
     addAlienPart(alien, -19, -5, 0, 4, 16, 20);
     addAlienPart(alien, 20, -5, 0, 4, 16, 20);
@@ -33,6 +40,7 @@ function createAlien(x, y, z) {
     var movementx = (Math.floor((Math.random() * 3) + 1)) - 2;
     var movementy = (Math.floor((Math.random() * 3) + 1)) - 2;
 
+<<<<<<< HEAD
     while (movementx == 0 && movementy == 0) {
 	movementx = (Math.floor((Math.random() * 3) + 1)) - 2;
 	movementy = (Math.floor((Math.random() * 3) + 1)) - 2;	
@@ -42,3 +50,9 @@ function createAlien(x, y, z) {
 
     return results;
 }
+=======
+    var results = [alien, movementx, movementy];
+
+    return results;
+}
+>>>>>>> origin/master
