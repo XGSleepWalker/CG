@@ -1,6 +1,5 @@
 function createBullet() {
 	'use strict';
-
 	
 	var material = new THREE.MeshBasicMaterial({ color: 0xff8000});
 	var geometry = new THREE.CubeGeometry(1.5, 3, 1);
@@ -12,12 +11,10 @@ function createBullet() {
 		bullet.scale.set(4, 4, 4);
 		bullets[i] = bullet;
 		activeBullets[i] = 0;
+		bullets[i].position.x = 1500;
+		bullets[i].position.y = 1500;
+		bullets[i].position.z = 1500;
 	}
-	
-	//scene.add(bullet);
-
-	
-	//scene.remove(bullet);
 }
 
 function loadBullet() {
@@ -27,7 +24,6 @@ function loadBullet() {
 		var j = 0;
 		while (j != 1 && i < maxBulletsNumber) {
 			if (activeBullets[i] == 0) {
-				//var bullet = bullets[i];
 				activeBullets[i] = 1;
 				bullets[i].position.x = ship.position.x;
 				bullets[i].position.y = ship.position.y + 50;

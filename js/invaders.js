@@ -12,8 +12,12 @@ var timeDelta;
 var contador = 0;
 var clock;
 var bullets = [];
+var enemies = [];
 var activeBullets = [];
 var maxBulletsNumber = 10;
+var camera1, camera2, camera3;
+var directionalLight;
+var pointLights = [];
 
 function render() {
 	'use strict';
@@ -26,7 +30,15 @@ function onResize() {
 		aspectRatio = camera.aspect;
 		camera.updateProjectionMatrix();
 		renderer.setSize(window.innerWidth, window.innerHeight);
-		createCamera();
+		if(camera1){
+			createCamera1();
+		}
+		if(camera2){
+			createCamera2();
+		}
+		if(camera3){
+			createCamera3();
+		}
 }
 
 function timeCount() {
@@ -91,15 +103,55 @@ function bulletMovement(delta) {
 	
 }
 
+
+function enemyMovement(delta){
+	for ( var i = 0; i < enemies.length; i++){
+		enemies[i][0].position.x += 75*delta*enemies[i][1];
+		enemies[i][0].position.y += 75*delta*enemies[i][2];
+	}
+}
+
+
 function animate() {
 	'use strict';
 	//timeCount();
 	var deltaN = clock.getDelta();
+	checkCollisionBullets();
+	checkCollisionAliens();
 	shipMovement();
+	enemyMovement(deltaN);
 	bulletMovement(deltaN);
 	requestAnimationFrame(animate);
 	render();
 }
+
+function checkCollisionAliens(){
+	
+	for(i = 0; i < enemies.length; i++){
+		for(j = 0; j < enemies.length; j++){
+			if(i != j){
+				hasCollision(enemies[i][0],enemies[j][0],i);
+			}
+		}
+	}
+}
+
+function checkCollisionBullets(){
+	for(i = 0; i < enemies.length; i++){
+		for(j = 0; j < bullets.length; j++){
+			if(hasCollision(enemies[i][0],bullets[j],i)){
+				enemies[i][0].position.x = 2000;
+				bullets[j].position.x = -2000;
+				scene.remove(enemies[i][0]);
+				scene.remove(bullets[j]);
+				activeBullets[j] = 0;
+			}
+		}
+	}
+}
+
+
+
 
 function init() {
        'use strict';
@@ -108,11 +160,12 @@ function init() {
        document.body.appendChild(renderer.domElement);
 
        createScene();
-	   createCamera();
+	   createCamera1();
+	   createDirectionalLight();
+	   createPointLight();
 	   clock = new THREE.Clock;
 
        window.addEventListener("resize", onResize, false);
        window.addEventListener("keydown", onKeyDown);
        window.addEventListener("keyup", onKeyUp);
 }
-

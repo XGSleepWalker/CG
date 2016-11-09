@@ -1,4 +1,5 @@
 window.canFire = true;
+window.lightToggle = true;
 function onKeyDown(event) {
 	'use strict';
 	switch (event.keyCode) {
@@ -14,10 +15,20 @@ function onKeyDown(event) {
 			date = new Date();
 			timeBefore = date.getTime();
 			break;
+		case 49: //1
+			createCamera1();
+			break;
+		case 50: //2
+			createCamera2();
+			break;
+		case 51: //3
+			createCamera3();
+			break;
 		case 65: //A
 			scene.traverse(function (node) {
 			if (node instanceof THREE.Mesh) {
 				node.material.wireframe = !node.material.wireframe;
+				console.log(node.parent);
 			}
 			});
 			break;
@@ -25,6 +36,12 @@ function onKeyDown(event) {
 			if(window.canFire) {
 				loadBullet();
 				window.canFire = false;
+			}
+			break;
+		case 78: //N
+			if(window.lightToggle) {
+				directionalLightToggle();
+				window.lightToggle = false;
 			}
 			break;
 	}
@@ -43,5 +60,7 @@ function onKeyUp(event) {
 			break;
 		case 66:
 			window.canFire = true;
+		case 78:
+			window.lightToggle = true;
 	}
 }

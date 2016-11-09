@@ -10,11 +10,12 @@ function addShipPart(obj, x, y, z, sizex, sizey, sizez) {
 function createShip(x, y, z) {
       'use strict'; 
       ship = new THREE.Object3D();
+      ship.name = "ship";
       
-      addShipPart(ship, 0, 0, 0, 80, 30, 0); //Ship Base
-      addShipPart(ship, 0, 18, 0, 60, 6, 0); //Ship Weapon Mount
-      addShipPart(ship, 0, 26, 0, 20, 20, 0); //Ship Weapon Support
-      addShipPart(ship, 0, 40, 0, 8, 8, 0); //Ship Weapon End
+      addShipPart(ship, 0, 0, 0, 80, 30, 20); //Ship Base
+      addShipPart(ship, 0, 18, 0, 60, 6, 20); //Ship Weapon Mount
+      addShipPart(ship, 0, 26, 0, 20, 20, 20); //Ship Weapon Support
+      addShipPart(ship, 0, 40, 0, 8, 8, 12); //Ship Weapon End
       
       scene.add(ship);
       
