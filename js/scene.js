@@ -35,4 +35,5 @@ function createScene() {
 	createShip(0, -400 ,0);
 	createBullet();
 	createPlayField();
+	createPlayFieldBorders();
 }

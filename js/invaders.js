@@ -58,21 +58,21 @@ function shipMovement() {
 
 		if (contador > 66) {
 			if(momentaneousAcceleration <= maximumVelocity) {
-				console.log("velocity: "+momentaneousAcceleration);
+				//console.log("velocity: "+momentaneousAcceleration);
 				momentaneousAcceleration = momentaneousAcceleration + 1;
 			}
 			contador -= 66;
 		}
 	
 		
-		if(window.isLeftDown && ship.position.x > -700) {
-			//console.log("ship position x: " + ship.position.x);
+		if(window.isLeftDown && ship.position.x > -650) {
+			console.log("ship position x: " + ship.position.x);
 			//console.log("velocity: "+momentaneousAcceleration);
 			ship.position.x -=  momentaneousAcceleration;
 
 		}
-		if(window.isRightDown && ship.position.x < 700) {
-			//console.log("ship position x: " + ship.position.x);
+		if(window.isRightDown && ship.position.x < 650) {
+			console.log("ship position x: " + ship.position.x);
 			//console.log("velocity: "+momentaneousAcceleration);	
 			ship.position.x += momentaneousAcceleration;
 		}

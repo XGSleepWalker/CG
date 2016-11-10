@@ -8,3 +8,21 @@ function createPlayField() {
 	playField.add(mesh);
 	scene.add(playField);
 }
+
+function addBorderPart(obj, x,y,z, sizex,sizey,sizez){
+	var material = new THREE.MeshPhongMaterial({color:0x096790});
+	var geometry = new THREE.CubeGeometry(sizex, sizey, sizez);
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.position.set(x,y,z);
+	obj.add(mesh);
+}
+
+function createPlayFieldBorders() {
+	var playFieldBorder = new THREE.Object3D();
+	playFieldBorder.name = "playFieldBorder";
+	addBorderPart(playFieldBorder, -700, 0, 0, 10, 1000, 100);
+	addBorderPart(playFieldBorder, 700, 0, 0, 10, 1000, 100);
+	addBorderPart(playFieldBorder, 0, -500, 0, 1400, 10, 100);
+	addBorderPart(playFieldBorder, 0, 500, 0, 1400, 10, 100);
+	scene.add(playFieldBorder)
+}
