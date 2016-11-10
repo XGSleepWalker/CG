@@ -2,6 +2,9 @@ var pointLightsNmr = 6;
 var pointLightsPerLine = 3;
 var pointLightsLines = 2;
 var pointLightsGap = 400;
+var shadingState = "lambert";
+var calcLight = true;
+
 
 function createDirectionalLight() {
 	directionalLight = new THREE.DirectionalLight( 0xffffff, 0 );
@@ -34,5 +37,61 @@ function pointLightToggle() {
 		//console.log("point light intensity: " + i + pointLights[i].intensity );
 		if (pointLights[i].intensity == 6) pointLights[i].intensity = 0.3;
 		else if (pointLights[i].intensity == 0.3) pointLights[i].intensity = 6;
+	}
+}
+
+
+function calcLightToggle() {
+	var i, j;
+	if(calcLight){
+		for(i = 0; i < enemies.length; i++){
+			for(j = 0; j < (enemies[i][0].children).length; j++){
+				enemies[i][0].children[j].material = new THREE.MeshBasicMaterial({color:0xff0000});
+				enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
+			}
+		}
+		calcLight = false;
+	}
+	else if(calcLight == false){
+		if(shadingState == "lambert"){
+			for(i = 0; i < enemies.length; i++){
+				for(j = 0; j < (enemies[i][0].children).length; j++){
+					enemies[i][0].children[j].material = new THREE.MeshLambertMaterial({color:0xff0000});
+					enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
+				}
+			}
+		}
+		if(shadingState == "phong"){
+			for(i = 0; i < enemies.length; i++){
+				for(j = 0; j < (enemies[i][0].children).length; j++){
+					enemies[i][0].children[j].material = new THREE.MeshPhongMaterial({color:0xff0000});
+					enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
+				}
+			}
+		}
+		calcLight = true;
+	}
+}
+
+function shadingChangeToggle(){
+	if(calcLight){
+		if(shadingState == "lambert"){
+			for(i = 0; i < enemies.length; i++){
+				for(j = 0; j < (enemies[i][0].children).length; j++){
+					enemies[i][0].children[j].material = new THREE.MeshPhongMaterial({color:0xff0000});
+					enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
+				}
+			}
+			shadingState = "phong";
+		}
+		else if(shadingState == "phong"){
+			for(i = 0; i < enemies.length; i++){
+				for(j = 0; j < (enemies[i][0].children).length; j++){
+					enemies[i][0].children[j].material = new THREE.MeshLambertMaterial({color:0xff0000});
+					enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
+				}
+			}
+			shadingState = "lambert";
+		}
 	}
 }

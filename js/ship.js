@@ -16,6 +16,7 @@ function addShipPart(obj, x, y, z, sizex, sizey, sizez) {
     triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, sizey/2, sizez/2));
     triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, -sizey/2, sizez/2));
     triangleGeometry.faces.push(new THREE.Face3(0,1,2));
+    triangleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00, side:THREE.DoubleSide});	
     triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
     triangleMesh.position.set(x,y,z);
     obj.add(triangleMesh);
@@ -35,6 +36,7 @@ function addShipPart(obj, x, y, z, sizex, sizey, sizez) {
     triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, sizey/2, -sizez/2));
     triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, -sizey/2, -sizez/2));
     triangleGeometry.faces.push(new THREE.Face3(0,1,2));
+    triangleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00, side:THREE.DoubleSide});
     triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
     triangleMesh.position.set(x,y,z);
     obj.add(triangleMesh);

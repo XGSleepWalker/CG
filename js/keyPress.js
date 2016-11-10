@@ -1,6 +1,9 @@
 window.canFire = true;
 window.NToggle = true;
 window.CToggle = true;
+window.GToggle = true;
+window.LToggle = true;
+
 function onKeyDown(event) {
 	'use strict';
 	switch (event.keyCode) {
@@ -39,6 +42,18 @@ function onKeyDown(event) {
 				window.canFire = false;
 			}
 			break;
+		case 71: //G
+			if(window.GToggle){
+				shadingChangeToggle();
+				window.GToggle = false;
+			}
+			break;
+		case 76: //L
+			if(window.LToggle){
+				calcLightToggle();
+				window.LToggle = false;
+			}
+			break;
 		case 78: //N
 			if(window.NToggle) {
 				directionalLightToggle();
@@ -50,6 +65,7 @@ function onKeyDown(event) {
 				pointLightToggle();
 				window.CToggle = false;
 			}
+			break;
 	}
 }
 
@@ -66,6 +82,12 @@ function onKeyUp(event) {
 			break;
 		case 66:
 			window.canFire = true;
+			break;
+		case 71:
+			window.GToggle = true;
+			break;
+		case 76:
+			window.LToggle = true;
 			break;
 		case 78:
 			window.NToggle = true;

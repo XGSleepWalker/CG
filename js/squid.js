@@ -1,7 +1,7 @@
 function addSquidParts(obj, x,y,z, sizex, sizey, sizez){
 
 
-	var material = new THREE.MeshPhongMaterial({color: 0xff0000});
+	var material = new THREE.MeshLambertMaterial({color: 0xff0000});
 	var geometry = new THREE.CubeGeometry(sizex, sizey, sizez);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(x,y,z);
