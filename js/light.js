@@ -58,7 +58,6 @@ function calcLightToggle() {
 			if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
-			ship.children[i].geometry.normalsNeedUpdate = true;
 		}
 		calcLight = false;
 	}
@@ -78,7 +77,6 @@ function calcLightToggle() {
 				if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
-				ship.children[i].geometry.normalsNeedUpdate = true;
 			}
 		}
 		if(shadingState == "phong"){
@@ -96,7 +94,6 @@ function calcLightToggle() {
 				if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
-				ship.children[i].geometry.normalsNeedUpdate = true;
 			}
 		}
 		calcLight = true;
@@ -120,7 +117,6 @@ function shadingChangeToggle(){
 				if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
-				ship.children[i].geometry.normalsNeedUpdate = true;
 			}
 			shadingState = "phong";
 		}
@@ -139,7 +135,6 @@ function shadingChangeToggle(){
 				if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
-				ship.children[i].geometry.normalsNeedUpdate = true;
 			}
 			shadingState = "lambert";
 		}
