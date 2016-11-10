@@ -54,7 +54,7 @@ function calcLightToggle() {
 			}
 		}
 		for(i=0; i<ship.children.length; i++){ 
-			ship.children[i].material = new THREE.MeshBasicMaterial({color:0xff0000});
+			ship.children[i].material = new THREE.MeshBasicMaterial({color:0x00ff00});
 			if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
@@ -74,7 +74,7 @@ function calcLightToggle() {
 				}
 			}
 			for(i=0; i<ship.children.length; i++){ 
-				ship.children[i].material = new THREE.MeshLambertMaterial({color:0xff0000});
+				ship.children[i].material = new THREE.MeshLambertMaterial({color:0x00ff00});
 				if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
@@ -92,7 +92,7 @@ function calcLightToggle() {
 				}
 			}
 			for(i=0; i<ship.children.length; i++){ 
-				ship.children[i].material = new THREE.MeshPhongMaterial({color:0xff0000});
+				ship.children[i].material = new THREE.MeshPhongMaterial({color:0x00ff00});
 				if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
@@ -116,7 +116,7 @@ function shadingChangeToggle(){
 				}
 			}
 			for(i=0; i<ship.children.length; i++){ 
-				ship.children[i].material = new THREE.MeshPhongMaterial({color:0xff0000});
+				ship.children[i].material = new THREE.MeshPhongMaterial({color:0x00ff00});
 				if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}
@@ -135,7 +135,7 @@ function shadingChangeToggle(){
 				}
 			}
 			for(i=0; i<ship.children.length; i++){ 
-				ship.children[i].material = new THREE.MeshLambertMaterial({color:0xff0000});
+				ship.children[i].material = new THREE.MeshLambertMaterial({color:0x00ff00});
 				if(window.wireframe){
 					ship.children[i].material.wireframe = true;
 				}

@@ -42,7 +42,7 @@ function addShipPart(obj, x, y, z, sizex, sizey, sizez) {
     triangleGeometry.faces.push(new THREE.Face3(2,7,3));
 	
 	triangleGeometry.computeFaceNormals();
-    var triangleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00, side:THREE.DoubleSide});
+    var triangleMaterial = new THREE.MeshLambertMaterial({color: 0x00ff00, side:THREE.DoubleSide});
     var triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
     triangleMesh.position.set(x,y,z);
     obj.add(triangleMesh);
