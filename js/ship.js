@@ -18,16 +18,16 @@ function addShipPart(obj, x, y, z, sizex, sizey, sizez) {
     triangleMesh.position.set(x,y,z);
     obj.add(triangleMesh);
 
-    var triangleGeometry2 = new THREE.Geometry();
-    triangleGeometry2.vertices.push(new THREE.Vector3(-sizex/2, sizey/2, 0.0));
-    triangleGeometry2.vertices.push(new THREE.Vector3(sizex/2, sizey/2,0.0));
-    triangleGeometry2.vertices.push(new THREE.Vector3(sizex/2, -sizey/2,0.0));
-    triangleGeometry2.faces.push(new THREE.Face3(0,1,2));
+    triangleGeometry = new THREE.Geometry();
+    triangleGeometry.vertices.push(new THREE.Vector3(-sizex/2, sizey/2, 0.0));
+    triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, sizey/2,0.0));
+    triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, -sizey/2,0.0));
+    triangleGeometry.faces.push(new THREE.Face3(0,1,2));
 
-    var triangleMaterial2 = new THREE.MeshBasicMaterial({color: 0x00ff00, side:THREE.DoubleSide});
-    var triangleMesh2 = new THREE.Mesh(triangleGeometry2, triangleMaterial2);
-    triangleMesh2.position.set(x,y,z);
-    obj.add(triangleMesh2);
+    triangleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00, side:THREE.DoubleSide});
+    triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
+    triangleMesh.position.set(x,y,z);
+    obj.add(triangleMesh);
 }
 
 function createShip(x, y, z) {
