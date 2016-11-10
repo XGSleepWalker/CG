@@ -47,8 +47,18 @@ function calcLightToggle() {
 		for(i = 0; i < enemies.length; i++){
 			for(j = 0; j < (enemies[i][0].children).length; j++){
 				enemies[i][0].children[j].material = new THREE.MeshBasicMaterial({color:0xff0000});
+				if(window.wireframe){
+						enemies[i][0].children[j].material.wireframe = true;
+					}
 				enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
 			}
+		}
+		for(i=0; i<ship.children.length; i++){ 
+			ship.children[i].material = new THREE.MeshBasicMaterial({color:0xff0000});
+			if(window.wireframe){
+					ship.children[i].material.wireframe = true;
+				}
+			ship.children[i].geometry.normalsNeedUpdate = true;
 		}
 		calcLight = false;
 	}
@@ -57,16 +67,36 @@ function calcLightToggle() {
 			for(i = 0; i < enemies.length; i++){
 				for(j = 0; j < (enemies[i][0].children).length; j++){
 					enemies[i][0].children[j].material = new THREE.MeshLambertMaterial({color:0xff0000});
+					if(window.wireframe){
+						enemies[i][0].children[j].material.wireframe = true;
+					}
 					enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
 				}
+			}
+			for(i=0; i<ship.children.length; i++){ 
+				ship.children[i].material = new THREE.MeshLambertMaterial({color:0xff0000});
+				if(window.wireframe){
+					ship.children[i].material.wireframe = true;
+				}
+				ship.children[i].geometry.normalsNeedUpdate = true;
 			}
 		}
 		if(shadingState == "phong"){
 			for(i = 0; i < enemies.length; i++){
 				for(j = 0; j < (enemies[i][0].children).length; j++){
 					enemies[i][0].children[j].material = new THREE.MeshPhongMaterial({color:0xff0000});
+					if(window.wireframe){
+						enemies[i][0].children[j].material.wireframe = true;
+					}
 					enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
 				}
+			}
+			for(i=0; i<ship.children.length; i++){ 
+				ship.children[i].material = new THREE.MeshPhongMaterial({color:0xff0000});
+				if(window.wireframe){
+					ship.children[i].material.wireframe = true;
+				}
+				ship.children[i].geometry.normalsNeedUpdate = true;
 			}
 		}
 		calcLight = true;
@@ -79,8 +109,18 @@ function shadingChangeToggle(){
 			for(i = 0; i < enemies.length; i++){
 				for(j = 0; j < (enemies[i][0].children).length; j++){
 					enemies[i][0].children[j].material = new THREE.MeshPhongMaterial({color:0xff0000});
+					if(window.wireframe){
+						enemies[i][0].children[j].material.wireframe = true;
+					}
 					enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
 				}
+			}
+			for(i=0; i<ship.children.length; i++){ 
+				ship.children[i].material = new THREE.MeshPhongMaterial({color:0xff0000});
+				if(window.wireframe){
+					ship.children[i].material.wireframe = true;
+				}
+				ship.children[i].geometry.normalsNeedUpdate = true;
 			}
 			shadingState = "phong";
 		}
@@ -88,8 +128,18 @@ function shadingChangeToggle(){
 			for(i = 0; i < enemies.length; i++){
 				for(j = 0; j < (enemies[i][0].children).length; j++){
 					enemies[i][0].children[j].material = new THREE.MeshLambertMaterial({color:0xff0000});
+					if(window.wireframe){
+						enemies[i][0].children[j].material.wireframe = true;
+					}
 					enemies[i][0].children[j].geometry.normalsNeedUpdate = true;
 				}
+			}
+			for(i=0; i<ship.children.length; i++){ 
+				ship.children[i].material = new THREE.MeshLambertMaterial({color:0xff0000});
+				if(window.wireframe){
+					ship.children[i].material.wireframe = true;
+				}
+				ship.children[i].geometry.normalsNeedUpdate = true;
 			}
 			shadingState = "lambert";
 		}

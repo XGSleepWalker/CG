@@ -3,6 +3,7 @@ window.NToggle = true;
 window.CToggle = true;
 window.GToggle = true;
 window.LToggle = true;
+window.wireframe = false;
 
 function onKeyDown(event) {
 	'use strict';
@@ -33,6 +34,7 @@ function onKeyDown(event) {
 			if (node instanceof THREE.Mesh) {
 				node.material.wireframe = !node.material.wireframe;
 				console.log(node.parent);
+				window.wireframe = !window.wireframe;
 			}
 			});
 			break;
