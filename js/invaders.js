@@ -18,6 +18,8 @@ var maxBulletsNumber = 10;
 var camera1, camera2, camera3;
 var directionalLight;
 var pointLights = [];
+var playField;
+var playFieldBorder;
 
 function render() {
 	'use strict';
@@ -72,7 +74,7 @@ function shipMovement() {
 
 		}
 		if(window.isRightDown && ship.position.x < 650) {
-			console.log("ship position x: " + ship.position.x);
+			//console.log("ship position x: " + ship.position.x);
 			//console.log("velocity: "+momentaneousAcceleration);	
 			ship.position.x += momentaneousAcceleration;
 		}
@@ -91,7 +93,7 @@ function bulletMovement(delta) {
 	for ( var i = 0; i < maxBulletsNumber; i++) {
 		
 		if (activeBullets[i] == 1) {
-			console.log("bullet position: " + bullets[0].position.y);
+			//console.log("bullet position: " + bullets[0].position.y);
 			bullets[i].position.y += 100*delta;
 			if (bullets[i].position.y >= 477) { 
 				scene.remove(bullets[i]);
