@@ -1,10 +1,27 @@
 function addShipPart(obj, x, y, z, sizex, sizey, sizez) {
     'use strict';
-    var geometry = new THREE.CubeGeometry(sizex, sizey, sizez);
-    var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: false });
-    var mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set(x, y, z);
-    obj.add(mesh);
+    var triangleGeometry = new THREE.Geometry();
+
+    triangleGeometry.vertices.push(new THREE.Vector3(-sizex/2, sizey/2, 0.0));
+    triangleGeometry.vertices.push(new THREE.Vector3(-sizex/2, -sizey/2,0.0));
+    triangleGeometry.vertices.push(new THREE.Vector3(sizex/2,-sizey/2,0.0));
+    triangleGeometry.faces.push(new THREE.Face3(0,1,2));
+
+    var triangleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00, side:THREE.DoubleSide});
+    var triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
+    triangleMesh.position.set(x,y,z);
+    obj.add(triangleMesh);
+
+    var triangleGeometry = new THREE.Geometry();
+    triangleGeometry.vertices.push(new THREE.Vector3(-sizex/2, sizey/2, 0.0));
+    triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, sizey/2,0.0));
+    triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, -sizey/2,0.0));
+    triangleGeometry.faces.push(new THREE.Face3(0,1,2));
+
+    var triangleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00, side:THREE.DoubleSide});
+    var triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
+    triangleMesh.position.set(x,y,z);
+    obj.add(triangleMesh);
 }
 
 function createShip(x, y, z) {

@@ -1,33 +1,10 @@
 function addAlienPart(obj, x,y,z, sizex,sizey,sizez){
 
-    var triangleGeometry = new THREE.Geometry();
-
-    triangleGeometry.vertices.push(new THREE.Vector3(-sizex/2, sizey/2, 0.0));
-    triangleGeometry.vertices.push(new THREE.Vector3(-sizex/2, -sizey/2,0.0));
-    triangleGeometry.vertices.push(new THREE.Vector3(sizex/2,-sizey/2,0.0));
-    triangleGeometry.faces.push(new THREE.Face3(0,1,2));
-
-    var triangleMaterial = new THREE.MeshPhongMaterial({color: 0xff0000});
-    var triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
-    triangleMesh.position.set(x,y,z);
-    obj.add(triangleMesh);
-
-    triangleGeometry = new THREE.Geometry();
-    triangleGeometry.vertices.push(new THREE.Vector3(-sizex/2, sizey/2, 0.0));
-    triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, sizey/2,0.0));
-    triangleGeometry.vertices.push(new THREE.Vector3(sizex/2, -sizey/2,0.0));
-    triangleGeometry.faces.push(new THREE.Face3(0,1,2));
-
-    triangleMaterial = new THREE.MeshPhongMaterial({color: 0xff0000});
-    triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
-    triangleMesh.position.set(x,y,z);
-    obj.add(triangleMesh);
-
-    //var material = new THREE.MeshPhongMaterial({color:0xff0000});
-	//var geometry = new THREE.CubeGeometry(sizex, sizey, sizez);
-	//var mesh = new THREE.Mesh(geometry, material);
-	//mesh.position.set(x,y,z);
-	//obj.add(mesh);
+    var material = new THREE.MeshPhongMaterial({color:0xff0000});
+	var geometry = new THREE.CubeGeometry(sizex, sizey, sizez);
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.position.set(x,y,z);
+	obj.add(mesh);
 }
 function createAlien(x, y, z) {
 	'use strict';
