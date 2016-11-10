@@ -33,6 +33,6 @@ function pointLightToggle() {
 	for(i = 1; i < pointLights.length; i++) {
 		//console.log("point light intensity: " + i + pointLights[i].intensity );
 		if (pointLights[i].intensity == 6) pointLights[i].intensity = 0.3;
-		else if (pointLights[i].intensity == 0) pointLights[i].intensity = 6;
+		else if (pointLights[i].intensity == 0.3) pointLights[i].intensity = 6;
 	}
 }
