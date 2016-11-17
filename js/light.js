@@ -175,3 +175,20 @@ function shadingChangeToggle(){
 		}
 	}
 }
+
+function createSpotLight() {
+	spotLight = new THREE.SpotLight(0xffffff, 2, 800, 1, 1, 1);
+	spotLight.position.set(0, -500, 200);
+	spotLight.castShadow = true;
+
+	spotLight.shadow.mapSize.width = 1024;
+	spotLight.shadow.mapSize.height = 1024;
+
+	spotLight.shadow.camera.near = 500;
+	spotLight.shadow.camera.far = 4000;
+	spotLight.shadow.camera.fov = 30;
+
+	//spotLight.target = (0, -400, 0);
+
+	scene.add(spotLight);
+}
