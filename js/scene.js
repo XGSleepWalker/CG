@@ -36,4 +36,5 @@ function createScene() {
 	createBullet();
 	createPlayField();
 	createPlayFieldBorders();
+	createSpotLight();
 }
