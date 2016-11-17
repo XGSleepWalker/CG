@@ -20,6 +20,7 @@ var directionalLight;
 var pointLights = [];
 var playField;
 var playFieldBorder;
+var spotLight;
 
 function render() {
 	'use strict';
