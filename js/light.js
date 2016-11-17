@@ -177,8 +177,8 @@ function shadingChangeToggle(){
 }
 
 function createSpotLight() {
-	spotLight = new THREE.SpotLight(0xffffff, 2, 800, 1, 1, 1);
-	spotLight.position.set(0, -500, 200);
+	spotLight = new THREE.SpotLight(0xffffff, 2, 700, 1.3, 1, 1);
+	spotLight.position.set(0, -50, 150);
 	spotLight.castShadow = true;
 
 	spotLight.shadow.mapSize.width = 1024;
@@ -187,8 +187,6 @@ function createSpotLight() {
 	spotLight.shadow.camera.near = 500;
 	spotLight.shadow.camera.far = 4000;
 	spotLight.shadow.camera.fov = 30;
-
-	//spotLight.target = (0, -400, 0);
-
-	scene.add(spotLight);
+	
+	ship.add(spotLight);
 }
