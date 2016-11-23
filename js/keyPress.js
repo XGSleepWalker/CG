@@ -3,6 +3,7 @@ window.NToggle = true;
 window.CToggle = true;
 window.GToggle = true;
 window.LToggle = true;
+window.HToggle = true;
 window.wireframe = false;
 
 function onKeyDown(event) {
@@ -68,6 +69,12 @@ function onKeyDown(event) {
 				window.CToggle = false;
 			}
 			break;
+		case 72: //H
+			if (window.HToggle) {
+				spotLightToggle();
+				window.HToggle = false;
+			}
+			break;
 	}
 }
 
@@ -96,5 +103,9 @@ function onKeyUp(event) {
 			break;
 		case 67:
 			window.CToggle = true;
+			break;
+		case 72:
+			window.HToggle = true;
+			break;
 	}
 }

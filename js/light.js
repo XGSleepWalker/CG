@@ -181,6 +181,7 @@ function createSpotLight() {
 	spotLight.position.set(0, -50, 50);
 	spotLight.castShadow = true;
 	spotLight.target = ship;
+	//spotLight.intensity = 0;
 
 	spotLight.shadow.mapSize.width = 1024;
 	spotLight.shadow.mapSize.height = 1024;
@@ -190,4 +191,9 @@ function createSpotLight() {
 	spotLight.shadow.camera.fov = 30;
 	
 	ship.add(spotLight);
+}
+
+function spotLightToggle() {
+	if (spotLight.intensity == 0) spotLight.intensity = 2;
+	else if (spotLight.intensity == 2) spotLight.intensity = 0;
 }
