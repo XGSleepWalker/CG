@@ -24,6 +24,9 @@ var playFieldBorder;
 var spotLight;
 var youLose;
 var youWin;
+var youPaused;
+var activeAliens = 16;
+var shipLives = 3;
 
 function render() {
 	'use strict';
@@ -46,7 +49,7 @@ function onResize() {
 			createCamera3();
 		}
 }
-
+/*
 function timeCount() {
 	date = new Date();
 	timeNow = date.getTime();
@@ -55,41 +58,26 @@ function timeCount() {
 	contador += timeDelta;
 	timeBefore = timeNow;
 }
+*/
 
-function shipMovement() {
+function shipMovement(delta) {
 	if (window.isLeftDown || window.isRightDown) {		
-		//console.log("Contador: " + contador);
-		timeCount();
-		if(window.isLeftDown && window.isRightDown) momentaneousAcceleration = 0;
-
-		if (contador > 66) {
-			if(momentaneousAcceleration <= maximumVelocity) {
-				//console.log("velocity: "+momentaneousAcceleration);
-				momentaneousAcceleration = momentaneousAcceleration + 1;
-			}
-			contador -= 66;
-		}
-	
+		if(window.isLeftDown && window.isRightDown) delta = 0;
 		
 		if(window.isLeftDown && ship.position.x > -650) {
-			//console.log("ship position x: " + ship.position.x);
-			//console.log("velocity: "+momentaneousAcceleration);
-			ship.position.x -=  momentaneousAcceleration;
+			ship.position.x -=  500*delta;
 			spotLight.target.updateMatrixWorld();
 		}
 		if(window.isRightDown && ship.position.x < 650) {
-			//console.log("ship position x: " + ship.position.x);
-			//console.log("velocity: "+momentaneousAcceleration);	
-			ship.position.x += momentaneousAcceleration;
+			ship.position.x += 500*delta;
 			spotLight.target.updateMatrixWorld();
 		}
 	}
-	
 	else if(window.isLeftUp){
-		momentaneousAcceleration = 0;
+		delta = 0;
 	}
 	else if(window.isRightUp){
-		momentaneousAcceleration = 0;
+		delta = 0;
 	}
 
 }
@@ -99,7 +87,7 @@ function bulletMovement(delta) {
 		
 		if (activeBullets[i] == 1) {
 			//console.log("bullet position: " + bullets[0].position.y);
-			bullets[i].position.y += 100*delta;
+			bullets[i].position.y += 300*delta;
 			if (bullets[i].position.y >= 477) { 
 				scene.remove(bullets[i]);
 				activeBullets[i] = 0;
@@ -113,8 +101,8 @@ function bulletMovement(delta) {
 
 function enemyMovement(delta){
 	for ( var i = 0; i < enemies.length; i++){
-		enemies[i][0].position.x += 75*delta*enemies[i][1];
-		enemies[i][0].position.y += 75*delta*enemies[i][2];
+		enemies[i][0].position.x += 125*delta*enemies[i][1];
+		enemies[i][0].position.y += 125*delta*enemies[i][2];
 	}
 }
 
@@ -123,11 +111,10 @@ function animate() {
 	'use strict';
 	//timeCount();
 	var deltaN = clock.getDelta();
-	if (isPaused)
-		deltaN = 0;
-	checkCollisionBullets();
+	if (isPaused) deltaN = 0;
+	checkCollisionShip_Bullets();
 	checkCollisionAliens();
-	shipMovement();
+	shipMovement(deltaN);
 	enemyMovement(deltaN);
 	bulletMovement(deltaN);
 	requestAnimationFrame(animate);
@@ -145,28 +132,41 @@ function checkCollisionAliens(){
 	}
 }
 
-function checkCollisionBullets(){
+function checkCollisionShip_Bullets(){
 	for(i = 0; i < enemies.length; i++){
+		if (hasCollision(enemies[i][0],ship,i)){
+			enemies[i][0].position.x = 2000;
+			scene.remove(enemies[i][0]);
+			activeAliens -= 1;
+			shipLives -= 1;
+			if(shipLives <= 0) {
+				// press R to restart
+				createYouLose();
+			}
+		}
 		for(j = 0; j < bullets.length; j++){
 			if(hasCollision(enemies[i][0],bullets[j],i)){
 				enemies[i][0].position.x = 2000;
 				bullets[j].position.x = -2000;
+				activeAliens -= 1;
 				scene.remove(enemies[i][0]);
 				scene.remove(bullets[j]);
 				activeBullets[j] = 0;
-				scene.remove(enemies[i][0]);
-				scene.remove(bullets[j]);
-
+				console.log(activeAliens);
+				if(activeAliens <= 0) {
+					// press R to restart
+					createYouWin();
+				}
 			}
 		}
 	}
 }
 
-function pause(){
+function pause() {
 	isPaused = !isPaused;
+	if (isPaused) createYouPaused();
+	else if (!isPaused) scene.remove(youPaused);
 }
-
-
 
 function init() {
        'use strict';
