@@ -29,7 +29,7 @@ function loadBullet() {
 				bullets[i].position.y = ship.position.y + 50;
 				bullets[i].position.z = ship.position.z;
 				scene.add(bullets[i]);
-				console.log("bullet created: " + i + " " + activeBullets[i]);
+				//console.log("bullet created: " + i + " " + activeBullets[i]);
 				j = 1;
 			}
 			i++;

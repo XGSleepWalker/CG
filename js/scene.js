@@ -25,6 +25,28 @@ function createAlienSquad(x, y, z) {
 	console.log("# of squids: "+(8-contSquid));
 }
 
+function createYouLose() {
+	youLose = new THREE.Object3D();
+	var texture = new THREE.TextureLoader().load( "js/You_Lose.png" );
+	var material = new THREE.MeshBasicMaterial({ transparent: false, map: texture });
+	var geometry = new THREE.CubeGeometry(500, 320, 1);
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.position.set(0, 0, 30);
+	youLose.add(mesh);
+	scene.add(youLose);
+}
+
+function createYouWin() {
+	youWin = new THREE.Object3D();
+	var texture = new THREE.TextureLoader().load( "js/You_Win.png" );
+	var material = new THREE.MeshBasicMaterial({ transparent: false, map: texture });
+	var geometry = new THREE.CubeGeometry(457, 127, 1);
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.position.set(0, 0, 30);
+	youWin.add(mesh);
+	scene.add(youWin);
+}
+
 function createScene() {
 	'use strict';
 	scene = new THREE.Scene();
@@ -37,4 +59,6 @@ function createScene() {
 	createPlayField();
 	createPlayFieldBorders();
 	createSpotLight();
+	createYouLose();
+	//createYouWin();
 }

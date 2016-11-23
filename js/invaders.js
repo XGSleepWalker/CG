@@ -21,6 +21,8 @@ var pointLights = [];
 var playField;
 var playFieldBorder;
 var spotLight;
+var youLose;
+var youWin;
 
 function render() {
 	'use strict';
@@ -72,12 +74,13 @@ function shipMovement() {
 			//console.log("ship position x: " + ship.position.x);
 			//console.log("velocity: "+momentaneousAcceleration);
 			ship.position.x -=  momentaneousAcceleration;
-
+			spotLight.target.updateMatrixWorld();
 		}
 		if(window.isRightDown && ship.position.x < 650) {
 			//console.log("ship position x: " + ship.position.x);
 			//console.log("velocity: "+momentaneousAcceleration);	
 			ship.position.x += momentaneousAcceleration;
+			spotLight.target.updateMatrixWorld();
 		}
 	}
 	
@@ -150,6 +153,7 @@ function checkCollisionBullets(){
 				activeBullets[j] = 0;
 				scene.remove(enemies[i][0]);
 				scene.remove(bullets[j]);
+
 			}
 		}
 	}
