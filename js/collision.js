@@ -1,6 +1,6 @@
 var xmin = -700
 var xmax = 700
-var ymin = -320
+var ymin = -400
 var ymax = 450
 
 function hasCollision(obj1, obj2, i){

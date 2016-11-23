@@ -29,7 +29,7 @@ function createYouLose() {
 	youLose = new THREE.Object3D();
 	var texture = new THREE.TextureLoader().load( "js/You_Lose.png" );
 	var material = new THREE.MeshBasicMaterial({ transparent: false, map: texture });
-	var geometry = new THREE.CubeGeometry(500, 320, 1);
+	var geometry = new THREE.CubeGeometry(500, 300, 1);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(0, 0, 30);
 	youLose.add(mesh);
@@ -47,6 +47,17 @@ function createYouWin() {
 	scene.add(youWin);
 }
 
+function createYouPaused() {
+	youPaused = new THREE.Object3D();
+	var texture = new THREE.TextureLoader().load( "js/Paused.jpg" );
+	var material = new THREE.MeshBasicMaterial({ transparent: true, map: texture });
+	var geometry = new THREE.CubeGeometry(500, 100, 1);
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.position.set(0, 0, 30);
+	youPaused.add(mesh);
+	scene.add(youPaused);
+}
+
 function createScene() {
 	'use strict';
 	scene = new THREE.Scene();
@@ -59,6 +70,6 @@ function createScene() {
 	createPlayField();
 	createPlayFieldBorders();
 	createSpotLight();
-	createYouLose();
+	//createYouLose();
 	//createYouWin();
 }
