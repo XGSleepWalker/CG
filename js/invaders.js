@@ -16,7 +16,7 @@ var bullets = [];
 var enemies = [];
 var activeBullets = [];
 var maxBulletsNumber = 10;
-var camerae1, camera2, camera3;
+var camera1, camera2, camera3;
 var directionalLight;
 var pointLights = [];
 var playField;
