@@ -4,6 +4,7 @@ window.CToggle = true;
 window.GToggle = true;
 window.LToggle = true;
 window.HToggle = true;
+window.SToggle = true;
 window.wireframe = false;
 
 function onKeyDown(event) {
@@ -76,7 +77,10 @@ function onKeyDown(event) {
 			}
 			break;
 		case 83: //S
-			pause();
+			if (window.SToggle) {
+				pause();
+				window.SToggle = false;
+			}
 			break;
 	}
 }
@@ -109,6 +113,9 @@ function onKeyUp(event) {
 			break;
 		case 72:
 			window.HToggle = true;
+			break;
+		case 83:
+			window.SToggle = true;
 			break;
 	}
 }
