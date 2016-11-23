@@ -25,7 +25,7 @@ function createPointLight() {
 			pointLights[k] = new THREE.PointLight( 0xffffff, 0, 250 );
 			pointLights[k].position.set(-400 + (pointLightsGap*j), 300 - (pointLightsGap*i*1.2), 20 );
 			scene.add( pointLights[k] );
-			console.log("point light created: " + k);
+			//console.log("point light created: " + k);
 			k--;
 		}
 	}
@@ -177,9 +177,10 @@ function shadingChangeToggle(){
 }
 
 function createSpotLight() {
-	spotLight = new THREE.SpotLight(0xffffff, 2, 700, 1.3, 1, 1);
-	spotLight.position.set(0, -50, 150);
+	spotLight = new THREE.SpotLight(0xffffff, 2, 700, 1.7, 1, 1);
+	spotLight.position.set(0, -50, 50);
 	spotLight.castShadow = true;
+	spotLight.target = ship;
 
 	spotLight.shadow.mapSize.width = 1024;
 	spotLight.shadow.mapSize.height = 1024;

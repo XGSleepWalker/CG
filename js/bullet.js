@@ -1,7 +1,7 @@
 function createBullet() {
 	'use strict';
 	
-	var material = new THREE.MeshBasicMaterial({ color: 0xff8000});
+	var material = new THREE.MeshPhongMaterial({ color: 0xff8000});
 	var geometry = new THREE.CubeGeometry(1.5, 3, 1);
 
 	for(var i = 0; i < maxBulletsNumber; i++) {

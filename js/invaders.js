@@ -69,7 +69,7 @@ function shipMovement() {
 	
 		
 		if(window.isLeftDown && ship.position.x > -650) {
-			console.log("ship position x: " + ship.position.x);
+			//console.log("ship position x: " + ship.position.x);
 			//console.log("velocity: "+momentaneousAcceleration);
 			ship.position.x -=  momentaneousAcceleration;
 
