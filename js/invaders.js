@@ -9,13 +9,14 @@ var date;
 var timeBefore;
 var timeNow;
 var timeDelta;
+var isPaused;
 var contador = 0;
 var clock;
 var bullets = [];
 var enemies = [];
 var activeBullets = [];
 var maxBulletsNumber = 10;
-var camera1, camera2, camera3;
+var camerae1, camera2, camera3;
 var directionalLight;
 var pointLights = [];
 var playField;
@@ -122,6 +123,8 @@ function animate() {
 	'use strict';
 	//timeCount();
 	var deltaN = clock.getDelta();
+	if (isPaused)
+		deltaN = 0;
 	checkCollisionBullets();
 	checkCollisionAliens();
 	shipMovement();
@@ -159,6 +162,9 @@ function checkCollisionBullets(){
 	}
 }
 
+function pause(){
+	isPaused = !isPaused;
+}
 
 
 

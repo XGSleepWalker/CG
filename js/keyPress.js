@@ -75,6 +75,9 @@ function onKeyDown(event) {
 				window.HToggle = false;
 			}
 			break;
+		case 83: //S
+			pause();
+			break;
 	}
 }
 
