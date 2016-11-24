@@ -1,8 +1,7 @@
 function createPlayField() {
 	playField = new THREE.Object3D();
     playField.name = "playField";
-    var texture = new THREE.TextureLoader().load( "js/background.jpg" );
-	var material = new THREE.MeshPhongMaterial({transparent: true, map: texture});
+	var material = new THREE.MeshPhongMaterial({color:0x096790});
 	var geometry = new THREE.CubeGeometry(1400, 1000, 1, 32, 32);
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.set(0,0,-21);
