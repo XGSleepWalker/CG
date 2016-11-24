@@ -8,6 +8,16 @@
 			     margin: 0;
 			     background-color: #fff;
 			     overflow: hidden;}
+			#lives {
+				width: 20%;
+				height: 10%;
+				margin: 5%;
+				opacity: 0.85;
+				position: absolute;
+				right: 0px;
+				bottom: 0px;
+				z-index: 0;
+			}
 		</style>
 		<script src="js/three.min.js"></script>
 		<script src="js/ship.js"></script>
@@ -22,10 +32,13 @@
 		<script src="js/invaders.js"></script>
 		<script src="js/collision.js"></script>
   	</head>
+  	
 	<body>
+	<div id ="lives">
   		<script>
 			init();
 			animate();
 		</script>
+	</div>
   	</body>
 </html>

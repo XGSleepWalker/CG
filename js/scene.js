@@ -58,6 +58,23 @@ function createYouPaused() {
 	scene.add(youPaused);
 }
 
+function createLivesSector() {
+	container = document.getElementById('lives');
+	renderer2 = new THREE.WebGLRenderer( { alpha: true } );
+	renderer2.setClearColor( 0x000000, 0 );
+	renderer2.setSize( 200, 200 );
+	container.appendChild( renderer2.domElement );
+	scene2 = new THREE.Scene();
+	camera4 = camera = new THREE.OrthographicCamera( 200/ -2, 200 / 2, 200 / 2, 200 / -2, 1, 1000);
+	camera4.position.x = 0;
+	camera4.position.y = 0;
+	camera4.position.z = 500;
+	scene2.add(camera);
+	camera4.position.copy(camera.position);
+	camera4.lookAt(scene2.position);
+	//scene2.add(new THREE.AxisHelper(100));
+}
+
 function createScene() {
 	'use strict';
 	scene = new THREE.Scene();
@@ -70,6 +87,8 @@ function createScene() {
 	createPlayField();
 	createPlayFieldBorders();
 	createSpotLight();
+	createLivesSector();
+	createShipLives(-60, -50, 0); 
 	//createYouLose();
 	//createYouWin();
 }

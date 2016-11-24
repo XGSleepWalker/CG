@@ -64,3 +64,30 @@ function createShip(x, y, z) {
     ship.position.y = y;
     ship.position.z = z;
 }
+
+function addShipLivesPart(obj, x,y,z, sizex, sizey, sizez) {
+    var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    var geometry = new THREE.CubeGeometry(sizex, sizey, sizez);
+    var mesh = new THREE.Mesh(geometry, material);
+    mesh.position.set(x,y,z);
+    obj.add(mesh);
+}
+
+function createShipLives(x, y, z) {
+    'use strict';
+    for (var i = 0; i < shipLivesCounter; i++) {
+        var shipLive = new THREE.Object3D();
+        addShipLivesPart(shipLive, 0, 0, 0, 80, 30, 20);
+        addShipLivesPart(shipLive, 0, 18, 0, 60, 6, 20); 
+        addShipLivesPart(shipLive, 0, 26, 0, 20, 20, 20); 
+        addShipLivesPart(shipLive, 0, 40, 0, 8, 8, 12); 
+
+        shipLive.scale.set(0.7, 0.7, 0.7);
+        scene2.add(shipLive);
+
+        shipLive.position.x = x + (60*i);
+        shipLive.position.y = y;
+        shipLive.position.z = z;
+        shipLives[i] = shipLive;
+    }
+}

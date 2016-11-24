@@ -35,7 +35,7 @@ function onKeyDown(event) {
 			scene.traverse(function (node) {
 			if (node instanceof THREE.Mesh) {
 				node.material.wireframe = !node.material.wireframe;
-				console.log(node.parent);
+				//console.log(node.parent);
 				window.wireframe = !window.wireframe;
 			}
 			});

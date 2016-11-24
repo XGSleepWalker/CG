@@ -1,6 +1,8 @@
 var camera, scene, renderer;
+var scene2, renderer2, container;
 var viewSize, aspectRatio;
 var ship, squid, alien, bullet;
+var shipLives = [];
 var squidscale = 4;
 var momentaneousAcceleration = 0;
 var startVelocity = 1;
@@ -16,7 +18,7 @@ var bullets = [];
 var enemies = [];
 var activeBullets = [];
 var maxBulletsNumber = 10;
-var camera1, camera2, camera3;
+var camera1, camera2, camera3, camera4;
 var directionalLight;
 var pointLights = [];
 var playField;
@@ -26,11 +28,12 @@ var youLose;
 var youWin;
 var youPaused;
 var activeAliens = 16;
-var shipLives = 3;
+var shipLivesCounter = 3;
 
 function render() {
 	'use strict';
 	renderer.render(scene, camera);
+	renderer2.render(scene2, camera4);
 }
 
 function onResize() {
@@ -138,9 +141,11 @@ function checkCollisionShip_Bullets(){
 			enemies[i][0].position.x = 2000;
 			scene.remove(enemies[i][0]);
 			activeAliens -= 1;
-			shipLives -= 1;
-			if(shipLives <= 0) {
+			scene2.remove(shipLives[shipLivesCounter-1]);
+			shipLivesCounter -= 1;
+			if(shipLivesCounter <= 0) {
 				// press R to restart
+				pause();
 				createYouLose();
 			}
 		}
@@ -155,6 +160,7 @@ function checkCollisionShip_Bullets(){
 				console.log(activeAliens);
 				if(activeAliens <= 0) {
 					// press R to restart
+					pause();
 					createYouWin();
 				}
 			}
@@ -164,8 +170,8 @@ function checkCollisionShip_Bullets(){
 
 function pause() {
 	isPaused = !isPaused;
-	if (isPaused) createYouPaused();
-	else if (!isPaused) scene.remove(youPaused);
+	if (isPaused && shipLivesCounter > 0 && activeAliens > 0 ) createYouPaused();
+	else if (!isPaused && shipLivesCounter > 0 && activeAliens > 0) scene.remove(youPaused);
 }
 
 function init() {
