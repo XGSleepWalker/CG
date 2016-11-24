@@ -1,26 +1,18 @@
 var camera, scene, renderer;
 var scene2, renderer2, container;
 var viewSize, aspectRatio;
+var camera1, camera2, camera3, camera4;
 var ship, squid, alien, bullet;
-var shipLives = [];
+var pointLights = [];
 var squidscale = 4;
-var momentaneousAcceleration = 0;
-var startVelocity = 1;
-var maximumVelocity = 15;
 var date;
 var timeBefore;
 var timeNow;
 var timeDelta;
 var isPaused;
-var contador = 0;
 var clock;
-var bullets = [];
-var enemies = [];
-var activeBullets = [];
 var maxBulletsNumber = 10;
-var camera1, camera2, camera3, camera4;
 var directionalLight;
-var pointLights = [];
 var playField;
 var playFieldBorder;
 var spotLight;
@@ -29,6 +21,15 @@ var youWin;
 var youPaused;
 var activeAliens = 16;
 var shipLivesCounter = 3;
+var shipLives = [];
+var momentaneousAcceleration = 0;
+var startVelocity = 1;
+var maximumVelocity = 15;
+var bullets = [];
+var enemies = [];
+var activeBullets = [];
+var contador = 0;
+
 
 function render() {
 	'use strict';
@@ -179,14 +180,28 @@ function init() {
        renderer = new THREE.WebGLRenderer();
        renderer.setSize(window.innerWidth, window.innerHeight);
        document.body.appendChild(renderer.domElement);
-
-       createScene();
-	   createCamera1();
-	   createDirectionalLight();
-	   createPointLight();
-	   clock = new THREE.Clock;
+	   variableinit();
 
        window.addEventListener("resize", onResize, false);
        window.addEventListener("keydown", onKeyDown);
        window.addEventListener("keyup", onKeyUp);
+}
+function variableinit(){
+	activeAliens = 16;
+	shipLivesCounter = 3;
+	shipLives = [];
+	momentaneousAcceleration = 0;
+	startVelocity = 1;
+	maximumVelocity = 15;
+	bullets = [];
+	enemies = [];
+	activeBullets = [];
+	contador = 0;
+	isPaused = false;
+	createScene();
+	createCamera1();
+	createDirectionalLight();
+	createPointLight();
+	clock = new THREE.Clock;
+
 }

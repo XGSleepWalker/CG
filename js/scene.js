@@ -79,7 +79,12 @@ function createScene() {
 	'use strict';
 	scene = new THREE.Scene();
 	//scene.add(new THREE.AxisHelper(100));
-
+	aliensGap = 70; //space between each alien
+	enemyLines = 4;
+	enemiesPerLine = 4;
+	contAlien = 8;
+	contSquid = 8;
+	k = 0;
 
 	createAlienSquad(-190, 0, 0);
 	createShip(0, -400 ,0);
