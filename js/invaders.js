@@ -19,16 +19,16 @@ var spotLight;
 var youLose;
 var youWin;
 var youPaused;
-var activeAliens = 16;
-var shipLivesCounter = 3;
+var activeAliens;
+var shipLivesCounter;
 var shipLives = [];
-var momentaneousAcceleration = 0;
-var startVelocity = 1;
-var maximumVelocity = 15;
+var momentaneousAcceleration;
+var startVelocity;
+var maximumVelocity;
 var bullets = [];
 var enemies = [];
 var activeBullets = [];
-var contador = 0;
+var contador;
 
 
 function render() {
@@ -184,7 +184,7 @@ function init() {
 	   container = document.getElementById('lives');
 	   renderer2 = new THREE.WebGLRenderer( { alpha: true } );
 	   renderer2.setClearColor( 0x000000, 0 );
-	   renderer2.setSize( 200, 200 );
+	   renderer2.setSize( window.innerWidth, window.innerHeight );
 	   container.appendChild( renderer2.domElement );
 	   variableinit();
        window.addEventListener("resize", onResize, false);
@@ -193,7 +193,7 @@ function init() {
 }
 function variableinit(){
 	activeAliens = 16;
-	shipLivesCounter = 3;
+	shipLivesCounter = 4;
 	shipLives = [];
 	momentaneousAcceleration = 0;
 	startVelocity = 1;

@@ -64,8 +64,9 @@ function calcLightToggle() {
 			playFieldBorder.children[i].geometry.normalsNeedUpdate = true;
 			if(window.wireframe) playFieldBorder.children[i].material.wireframe = true;
 		}
-		playField.children[0].material = new THREE.MeshBasicMaterial({color:0x096790});
-		playField.children[0].geometry.normalsNeedUpdate = true;
+		//var texture = new THREE.TextureLoader().load( "js/background.jpg" );
+		//playField.children[0].material = new THREE.MeshBasicMaterial({map : texture});
+		//playField.children[0].geometry.normalsNeedUpdate = true;
 		calcLight = false;
 	}
 	else if(calcLight == false){
@@ -90,8 +91,8 @@ function calcLightToggle() {
 				playFieldBorder.children[i].geometry.normalsNeedUpdate = true;
 				if(window.wireframe) playFieldBorder.children[i].material.wireframe = true;
 			}
-			playField.children[0].material = new THREE.MeshLambertMaterial({color:0x096790});
-			playField.children[0].geometry.normalsNeedUpdate = true;
+			//playField.children[0].material = new THREE.MeshLambertMaterial({color:0x096790});
+			//playField.children[0].geometry.normalsNeedUpdate = true;
 		}
 		if(shadingState == "phong"){
 			for(i = 0; i < enemies.length; i++){
@@ -114,8 +115,8 @@ function calcLightToggle() {
 				playFieldBorder.children[i].geometry.normalsNeedUpdate = true;
 				if(window.wireframe) playFieldBorder.children[i].material.wireframe = true;
 			}
-			playField.children[0].material = new THREE.MeshPhongMaterial({color:0x096790});
-			playField.children[0].geometry.normalsNeedUpdate = true;
+			//playField.children[0].material = new THREE.MeshPhongMaterial({color:0x096790});
+			//playField.children[0].geometry.normalsNeedUpdate = true;
 		}
 		calcLight = true;
 	}
@@ -144,8 +145,8 @@ function shadingChangeToggle(){
 				playFieldBorder.children[i].geometry.normalsNeedUpdate = true;
 				if(window.wireframe) playFieldBorder.children[i].material.wireframe = true;
 			}
-			playField.children[0].material = new THREE.MeshPhongMaterial({color:0x096790});
-			playField.children[0].geometry.normalsNeedUpdate = true;
+			//playField.children[0].material = new THREE.MeshPhongMaterial({color:0x096790});
+			//playField.children[0].geometry.normalsNeedUpdate = true;
 			shadingState = "phong";
 		}
 		else if(shadingState == "phong"){
@@ -169,8 +170,8 @@ function shadingChangeToggle(){
 				playFieldBorder.children[i].geometry.normalsNeedUpdate = true;
 				if(window.wireframe) playFieldBorder.children[i].material.wireframe = true;
 			}
-			playField.children[0].material = new THREE.MeshLambertMaterial({color:0x096790});
-			playField.children[0].geometry.normalsNeedUpdate = true;
+			//playField.children[0].material = new THREE.MeshLambertMaterial({color:0x096790});
+			//playField.children[0].geometry.normalsNeedUpdate = true;
 			shadingState = "lambert";
 		}
 	}

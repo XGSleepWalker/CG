@@ -83,7 +83,10 @@ function createLivesSector() {
 
 
 	scene2 = new THREE.Scene();
-	camera4 = camera = new THREE.OrthographicCamera( 200/ -2, 200 / 2, 200 / 2, 200 / -2, 1, 1000);
+	viewSize = 1000;
+    aspectRatio = window.innerWidth/window.innerHeight;
+	camera4 = camera = new THREE.OrthographicCamera( aspectRatio*viewSize/ -2, aspectRatio*viewSize / 2, viewSize / 2, viewSize / -2, 1, 1000);
+	//camera4 = camera = new THREE.OrthographicCamera( 200/ -2, 200 / 2, 200 / 2, 200 / -2, 1, 1000);
 	camera4.position.x = 0;
 	camera4.position.y = 0;
 	camera4.position.z = 500;
@@ -112,7 +115,7 @@ function createScene() {
 	createBackground();
 	createSpotLight();
 	createLivesSector();
-	createShipLives(-60, -50, 0); 
+	createShipLives(-600, -450, 0); 
 	//createYouLose();
 	//createYouWin();
 }
