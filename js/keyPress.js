@@ -82,6 +82,10 @@ function onKeyDown(event) {
 				window.SToggle = false;
 			}
 			break;
+		case 82: //R
+			variableinit();
+			clock = new THREE.Clock;
+			break;
 	}
 }
 

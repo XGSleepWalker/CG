@@ -75,6 +75,7 @@ function addShipLivesPart(obj, x,y,z, sizex, sizey, sizez) {
 
 function createShipLives(x, y, z) {
     'use strict';
+    console.log("creating ship lives");
     for (var i = 0; i < shipLivesCounter; i++) {
         var shipLive = new THREE.Object3D();
         addShipLivesPart(shipLive, 0, 0, 0, 80, 30, 20);

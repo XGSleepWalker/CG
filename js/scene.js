@@ -59,11 +59,8 @@ function createYouPaused() {
 }
 
 function createLivesSector() {
-	container = document.getElementById('lives');
-	renderer2 = new THREE.WebGLRenderer( { alpha: true } );
-	renderer2.setClearColor( 0x000000, 0 );
-	renderer2.setSize( 200, 200 );
-	container.appendChild( renderer2.domElement );
+
+
 	scene2 = new THREE.Scene();
 	camera4 = camera = new THREE.OrthographicCamera( 200/ -2, 200 / 2, 200 / 2, 200 / -2, 1, 1000);
 	camera4.position.x = 0;
@@ -79,7 +76,12 @@ function createScene() {
 	'use strict';
 	scene = new THREE.Scene();
 	//scene.add(new THREE.AxisHelper(100));
-
+	aliensGap = 70; //space between each alien
+	enemyLines = 4;
+	enemiesPerLine = 4;
+	contAlien = 8;
+	contSquid = 8;
+	k = 0;
 
 	createAlienSquad(-190, 0, 0);
 	createShip(0, -400 ,0);
